@@ -1,0 +1,37 @@
+.challenge-container {
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr;
+    grid-template-rows: 1fr;
+    gap: 0px 10px;
+    grid-template-areas:
+      "challenge-info challenge-description";
+    
+      padding: 10px;
+  }
+  
+  .challenge-info {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr 1fr;
+    grid-template-rows: 0.4fr 0.5fr 2.1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "challenge-lvl challenge-name challenge-name"
+      "status author date"
+      "topics topics topics";
+    grid-area: challenge-info;
+  }
+  
+  .challenge-name { grid-area: challenge-name; }
+  
+  .challenge-lvl { grid-area: challenge-lvl; }
+  
+  .status { grid-area: status; }
+  
+  .author { grid-area: author; }
+  
+  .date { grid-area: date; }
+  
+  .topics { grid-area: topics; }
+  
+  .challenge-description { grid-area: challenge-description; }
+  
