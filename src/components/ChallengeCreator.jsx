@@ -48,19 +48,6 @@ const fetchData = () => {
   });
 }
 console.log(challenge);
-
-
-
-
-
-
-    // useEffect(() => {
-    //   setChallenge(() => {
-    //     challenge.replace(/#f1;/g, data.challenge.formulas[0] )
-    //   })
-    // }, [challenge])
-
-    
   
 
   return (
@@ -68,12 +55,7 @@ console.log(challenge);
       <div className="content">
         {/* <div>{parse(convertLatexToMarkup(latex))}</div> */}
         {parse(challenge)}
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae earum
-          consequuntur culpa. Eius, laborum. Laudantium exercitationem, sit ea
-          reiciendis accusantium dignissimos adipisci soluta aspernatur! Nam
-          deleniti architecto debitis ipsa veniam.
-        </p>
+
       </div>
 
       <MathfieldComponent latex={latex} onChange={setLatex} />
