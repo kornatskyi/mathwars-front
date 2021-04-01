@@ -15,6 +15,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'my-first-webpack.bundle.js',
+        publicPath: '/'
     },
     mode: 'development',
     module: {
@@ -70,6 +71,9 @@ module.exports = {
 
         ],
     },
+    devServer: {
+        historyApiFallback: true,
+      },
     plugins: [new HtmlWebpackPlugin({ template: './src/index.html', minify: false })],
 
 };

@@ -14,51 +14,16 @@ import "../styles/challange-creator.scss";
 import { convertLatexToMarkup, convertLatexToMathMl } from "mathlive";
 
 export default function ChallengeCreator() {
-  const [latex, setLatex] = React.useState("f(x)=\\log _10 x");
-
-  const [challenge, setChallenge] = useState("");
-  const [formula, setFormula] = useState({});
-
-  const [data, setData] = useState("")
-
-  // setChallenge(data.challenge.body);
-useEffect(() => {
-  fetchData();
-
-}, [])
-
-useEffect(() => {
-  
-  if(data === "") {
-    console.log("Data didn't set");
-    return
-  }
-
-  setChallenge(data.challenge.body.replace(/#f1;/g, `<div>${convertLatexToMarkup(data.challenge.formulas.formula1)}</div>`));
-
-
-}, [data])
-
-
-const fetchData = () => {
-  fetch('http://localhost:8125/data.json')
-  .then(response => response.json()).then(data => {
-  
-    setData(data);
-  });
-}
-console.log(challenge);
+ 
   
 
   return (
     <div className="challenge-creator-container">
       <div className="content">
-        {/* <div>{parse(convertLatexToMarkup(latex))}</div> */}
-        {parse(challenge)}
+       
 
       </div>
 
-      <MathfieldComponent latex={latex} onChange={setLatex} />
     </div>
   );
 }
