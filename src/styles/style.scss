@@ -1,3 +1,9 @@
+@import "~bootstrap/scss/bootstrap";
 @import "./variables.scss";
+@import "./challenge.scss";
 
+body {
+    background-color: $dark-blue90;
+    color: $light;
+}
 

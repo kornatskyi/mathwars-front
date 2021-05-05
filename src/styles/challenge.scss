@@ -1,0 +1,49 @@
+@import "./variables.scss";
+
+
+.challenge-container {
+    display: flex;
+    background-color: $dark;
+    border: 2px solid $yellow;
+    margin: 20px 0px;
+    &>* {
+        padding: 15px 30px;
+    }
+    .left-column {
+        width: 35%;
+        .header {
+            display: flex;
+            .lvl {
+                border: 1px solid $yellow;
+                padding: 1px 4px;
+                align-self: center;
+                justify-self: center;
+                min-width: 40px;
+                min-height: 30px;
+                &:hover {
+                    background-color: $yellow;
+                    color: $dark-blue;
+                }
+            }
+            .name {
+                align-self: center;
+                justify-self: center;
+                margin: auto;
+                padding: 5px;
+                &>* {
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+        }
+        .meta-data {
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+
+    .right-column {
+        width: 65%;
+    }
+}
