@@ -33,8 +33,8 @@ useEffect(() => {
     console.log("Data didn't set");
     return
   }
-
-  setChallenge(data.challenge.body.replace(/#f1;/g, `<div>${convertLatexToMarkup(data.challenge.formulas.formula1)}</div>`));
+  setChallenge(data.challenge_0.body.text.replace(/#f0;/g,
+       `<div>${convertLatexToMarkup(data.challenge_0.body.formulas.formula1)}</div>`));
 
 
 }, [data])
@@ -43,11 +43,10 @@ useEffect(() => {
 const fetchData = () => {
   fetch('http://localhost:8125/data.json')
   .then(response => response.json()).then(data => {
-  
+    
     setData(data);
   });
 }
-console.log(challenge);
   
 
   return (
