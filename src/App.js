@@ -7,9 +7,8 @@ import {
   Link
 } from "react-router-dom";
 
-import Challenge from './components/Challenge.jsx'
-import SearchPanel from './components/SearchPanel.jsx'
-import ChallengePage from './components/ChallengePage.jsx'
+import BrowsePage from './components/pages/BrowsePage.jsx'
+
 
 
 
@@ -17,22 +16,8 @@ import ChallengePage from './components/ChallengePage.jsx'
 const App = () => (
   <div>
 
-
-    <div className="container">
-      <div className="row">
-
-
-        <div className="col col-sm-3">
-          <SearchPanel />
-        </div>
-        <div className="col col-sm-9">
-          <Challenge />
-          <Challenge />
-        </div>
-      </div>
-
-    </div>
-
+<BrowsePage/>
+   
 
 
 
