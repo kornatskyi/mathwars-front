@@ -1,0 +1,6 @@
+@import "variables.scss";
+
+@mixin block-style {
+    background-color: $dark;
+    border          : 2px solid $yellow;
+}

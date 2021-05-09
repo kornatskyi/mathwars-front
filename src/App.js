@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import BrowsePage from './components/pages/BrowsePage.jsx'
+import ChallengePage from './components/pages/ChallengePage.jsx'
 
 
 
@@ -16,7 +17,7 @@ import BrowsePage from './components/pages/BrowsePage.jsx'
 const App = () => (
   <div>
 
-<BrowsePage/>
+<ChallengePage/>
    
 
 

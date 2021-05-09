@@ -1,0 +1,10 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.challenge-page-container {
+    height: 100vh;
+    .container {
+        height: 100%;
+
+    }
+}

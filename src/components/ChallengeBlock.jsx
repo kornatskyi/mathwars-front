@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Challenge() {
+export default function ChallengeBlock() {
   return (
     <div className="challenge-container">
       <div className="left-column">

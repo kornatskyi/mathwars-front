@@ -1,0 +1,7 @@
+@import "../variables.scss";
+@import "../mixins";
+
+.challenge-page-header-constainer {
+    @include block-style;
+    display: flex;
+}

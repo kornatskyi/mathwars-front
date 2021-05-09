@@ -1,0 +1,9 @@
+@import "../variables.scss";
+@import "../mixins";
+
+.challenge-page-draft-container {
+    @include block-style;
+    height: 100%;
+    background-color: rgb(221, 221, 221);
+
+}

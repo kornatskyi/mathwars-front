@@ -1,8 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./variables.scss";
-@import "./challenge.scss";
+@import "./challenge-block.scss";
 @import "./browse-panel.scss";
-
+@import "challenge_page/challenge-page.scss";
+@import "challenge_page/challenge-page-answer.scss";
+@import "challenge_page/challenge-page-challenge-description.scss";
+@import "challenge_page/challenge-page-draft.scss";
+@import "challenge_page/challenge-page-header.scss";
+@import "challenge_page/challenge-page-tools.scss";
 body {
     background-color: $dark-blue90;
     color: $light;

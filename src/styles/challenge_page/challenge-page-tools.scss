@@ -1,0 +1,6 @@
+@import "../variables.scss";
+@import "../mixins";
+
+.challenge-page-tools-container {
+    @include block-style;
+}

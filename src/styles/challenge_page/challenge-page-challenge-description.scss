@@ -1,0 +1,8 @@
+@import "../variables.scss";
+@import "../mixins";
+
+.challenge-page-challenge-description-constainer {
+    @include block-style;
+    height: 100%;
+    
+}

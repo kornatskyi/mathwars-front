@@ -1,9 +1,9 @@
 import React from 'react'
-import Challenge from '../../components/Challenge.jsx'
+import Challenge from '../../components/ChallengeBlock.jsx'
 import BrowsePanel from '../../components/BrowsePanel.jsx'
 
 
-export default function BrowsePage() {
+export default function ChallengePageBrowsePage() {
     return (
         <div>
              <div className="container">
