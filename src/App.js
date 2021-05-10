@@ -9,7 +9,7 @@ import {
 
 import BrowsePage from './components/pages/BrowsePage.jsx'
 import ChallengePage from './components/pages/ChallengePage.jsx'
-
+import LeftNavbar from './components/LeftNavbar.jsx'
 
 
 
@@ -17,24 +17,13 @@ import ChallengePage from './components/pages/ChallengePage.jsx'
 const App = () => (
   <div>
 
-<ChallengePage/>
-   
+    <LeftNavbar/>
+    <ChallengePage />
+
 
 
 
   </div>
 )
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
 
 export default App;

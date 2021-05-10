@@ -1,0 +1,12 @@
+@import "./variables.scss";
+@import "./mixins";
+
+
+.left-navbar-container {
+    position:fixed;
+    height: 100%;
+    .navbar {
+        display: flex;
+        flex-direction: column;
+    }
+}
