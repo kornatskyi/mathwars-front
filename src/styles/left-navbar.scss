@@ -3,10 +3,32 @@
 
 
 .left-navbar-container {
-    position:fixed;
-    height: 100%;
+    position        : fixed;
+    height          : 100%;
+    background-color: $dark-blue;
+
+    z-index: 9999;
+  
+
     .navbar {
-        display: flex;
-        flex-direction: column;
+        display       : flex;
+        flex-direction: navbar;
+        width         : 70px;
+        
+       
+        p {
+            display: none;
+        }
+
+        &:hover {
+            width: 190px;
+            p {
+                display: block;
+            }
+        }
+       
+
     }
+
+
 }

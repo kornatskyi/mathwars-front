@@ -4,3 +4,34 @@
     background-color: $dark;
     border          : 2px solid $yellow;
 }
+
+
+@mixin xs {
+    @media (min-width: 0) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: 480px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: 1800px) {
+        @content;
+    }
+}
