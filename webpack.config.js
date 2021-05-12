@@ -40,6 +40,7 @@ module.exports = {
 
                 ],
             },
+
             {
                 test: /\.css$/i,
                 use: [
@@ -50,24 +51,13 @@ module.exports = {
 
                 ],
             },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'fonts/'
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-                use: [
-                    "url-loader"
-                ],
-            },
+
+            { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+            //removed svg from regex , for some reason url-loader brokes svg import
+            { test: /\.(png|jpg|jpeg|gif)$/, loader: "url-loader" },
+            { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader" },
+
+
 
         ],
     },

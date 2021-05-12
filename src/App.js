@@ -16,13 +16,8 @@ import LeftNavbar from './components/LeftNavbar.jsx'
 
 const App = () => (
   <div>
-
     <LeftNavbar/>
     <ChallengePage />
-
-
-
-
   </div>
 )
 

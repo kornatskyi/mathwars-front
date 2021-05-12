@@ -1,27 +1,38 @@
 import React from "react";
+import logo from "../assets/images/logo.svg";
+import search from "../assets/images/navbar/search-solid.svg";
+import book from "../assets/images/navbar/book-solid.svg";
+import forum from "../assets/images/navbar/comments-regular.svg";
 
 export default function LeftNavbar() {
   return (
     <div className="left-navbar-container">
-      <div className="navbar">
-        
-        <div className="nav-item">
-          <img className="logo" src="" alt="" />
-          <a href=""><p>Dashboard</p></a>
-        </div>
-        <div className="nav-item">
-            <a href=""><p>Browse</p></a>
-            <i></i>
-        </div>
-        <div className="nav-item">
-            <a href=""><p>Docs</p></a>
-            <i></i>
-        </div>
-        <div className="nav-item">
-            <a href=""><p>Forum</p></a>
-            <i></i>
-        </div>
-      </div>
+      <ul className="navbar">
+        <li className="nav-item">
+          <a href="">
+            <img className="logo" src={logo} alt="" />
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="">
+            <img src={search} alt="" />
+            <span>Browse</span>
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="">
+            <img src={book} alt="" />
+            <span>Resources</span>
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="">
+            <img src={forum} alt="" />
+            <span>Forum</span>
+          </a>
+        </li>
+      </ul>
     </div>
   );
 }
