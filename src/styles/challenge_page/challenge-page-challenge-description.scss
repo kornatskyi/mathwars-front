@@ -4,5 +4,11 @@
 .challenge-page-challenge-description-constainer {
     @include block-style;
     height: 100%;
-    
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    .formula {
+        color: $dark-blue90;
+        background-color: $dark-blue90;
+    }
 }

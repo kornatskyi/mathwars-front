@@ -24,6 +24,7 @@ export default function ChallengeBlock() {
           when P = 5,000, r = 2.5% and t = 4? That is, $5,000 is invested for 4
           years at 2.5% simple interest.
         </p>
+        <button className="btn btn-primary">Train</button>
       </div>
     </div>
   );

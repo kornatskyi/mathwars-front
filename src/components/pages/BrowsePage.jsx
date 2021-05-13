@@ -16,6 +16,7 @@ export default function ChallengePageBrowsePage() {
         <div className="col col-md-8">
           <Challenge />
           <Challenge />
+          <Challenge />
         </div>
       </div>
 

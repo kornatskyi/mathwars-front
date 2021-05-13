@@ -1,10 +1,15 @@
 @import "../variables.scss";
-@import "../mixins.scss";
+@import "../_mixins.scss";
 
 .challenge-page-container {
     height: 100vh;
     .container {
         height: 100%;
+        @include md {
+            padding-left: min(70px);
+       
+
+        }
 
     }
 }

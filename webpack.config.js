@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 
 
 module.exports = {
-    entry: './src/index.js',
+    //without babel-polyfill cause error:Babel 6 regeneratorRuntime is not defined wen define async function
+    entry: ['babel-polyfill', './src/index.js'],
 
     devtool: 'inline-source-map',
     devServer: {
