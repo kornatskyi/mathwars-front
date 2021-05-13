@@ -1,4 +1,6 @@
 @import "./variables.scss";
+@import "./mixins";
+
 
 
 
@@ -7,6 +9,7 @@
         margin : 0;
         padding: 0;
     }
+
 
     display         : flex;
     background-color: $dark;

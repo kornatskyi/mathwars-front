@@ -3,5 +3,39 @@
 
 .challenge-page-answer-constainer {
     @include block-style;
-   
+
+    form {
+        display        : flex;
+        justify-content: space-between;
+
+        label {
+            margin: 0;
+            width : 100%;
+
+            input {
+                height       : 100%;
+                width        : 100%;
+                border-radius: 0;
+                &:hover {
+                    border-color: $yellow;
+                    color: $yellow;
+                }
+
+            }
+        }
+
+        button {
+            width        : 20%;
+            min-width    : 100px;
+            border-radius: 0;  
+            background-color:transparent;
+            color: $light;
+            &:hover {
+                border-color: $yellow;
+                color: $yellow;
+                background-color: transparent;
+
+            }
+        }
+    }
 }

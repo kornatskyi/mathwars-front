@@ -47,7 +47,7 @@ export default function ChallengePage() {
     <div className="challenge-page-container">
       <div className="container  d-flex h-100 flex-column">
         <div className="row">
-          <div className="col col-12 mt-2 mb-2">
+          <div className="col col-12 mt-2 mb-2 pl-2 pr-0">
             <ChallengePageHeader
               date={date}
               name={name}
@@ -58,8 +58,8 @@ export default function ChallengePage() {
             />
           </div>
         </div>
-        <div className="row  flex-fill mb-2">
-          <div className="col col-5 pr-1">
+        <div className="row  flex-fill ">
+          <div className="col col-12 col-md-5 pl-2 pr-0 pb-2">
             <ChallengePageChallengeDescription
               loading={loading}
               name={name}
@@ -71,7 +71,7 @@ export default function ChallengePage() {
               answerType={answerType}
             />
           </div>
-          <div className="col col-7 d-flex h-100 flex-column pl-1">
+          <div className="col col-12 col-md-7 d-flex h-100 flex-column pl-2  pr-0 pb-2">
             <div className="row flex-fill mb-2">
               <div className="col col-12">
                 <ChallengePageDraft />

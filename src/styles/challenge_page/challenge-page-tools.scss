@@ -3,4 +3,13 @@
 
 .challenge-page-tools-container {
     @include block-style;
+    display: flex;
+    padding: 5px;
+    .tool-container {
+        margin: 0 10px;
+        img {
+            width: 30px;
+            
+        }
+    }
 }
