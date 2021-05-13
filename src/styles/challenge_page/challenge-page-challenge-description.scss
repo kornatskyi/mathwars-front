@@ -3,12 +3,17 @@
 
 .challenge-page-challenge-description-constainer {
     @include block-style;
-    height: 100%;
-    padding: 10px;
-    display: flex;
+    height        : 100%;
+    padding       : 10px;
+    display       : flex;
     flex-direction: column;
+
     .formula {
-        color: $dark-blue90;
-        background-color: $dark-blue90;
+        margin          : 10px 0;
+        padding: 5px;
+        background-color: black;
+        border-radius: .375rem;
+        font-size: .875em;
+        line-height: 1.7142857;
     }
 }

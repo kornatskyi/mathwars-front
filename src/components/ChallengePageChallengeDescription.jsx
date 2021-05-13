@@ -1,10 +1,6 @@
 import React from "react";
 
-
-
 export default function ChallengePageChallengeDescription(props) {
-
-
   if (props.loading) {
     return (
       <div className="challenge-page-challenge-description-constainer">
@@ -15,12 +11,13 @@ export default function ChallengePageChallengeDescription(props) {
     return (
       <div className="challenge-page-challenge-description-constainer">
         <h2>Task</h2>
-        <p>
-        {props.text}
-        </p>
+        <p>{props.text}</p>
         <img src={props.host + props.images} alt="" />
-        <div className="formula">{props.formulas["formula1"]}</div>
-        
+        <div className="formula">
+          <span dangerouslySetInnerHTML={{__html:props.formulas["formula1"]}}>
+          </span>
+        </div>
+
         <div>To find: {props.shortTask}</div>
         <div>Answer format: {props.answerType} </div>
       </div>

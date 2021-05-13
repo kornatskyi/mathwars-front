@@ -19,8 +19,9 @@ export default function ChallengePage() {
   const [answerType, setAnswerType] = useState("");
   const [images, setImages] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [athor, setAthor] = useState("");
+  const [author, setAuthor] = useState("");
   const [topics, setTopics] = useState("");
+  const [tags, setTags] = useState("");
 
   useEffect(async () => {
     const response = await fetch(url);
@@ -35,8 +36,9 @@ export default function ChallengePage() {
     setAnswerType(data.body.answerType);
     setImages(data.body.images);
     setDifficulty(data.difficulty);
-    setAthor(data.athor);
+    setAuthor(data.author);
     setTopics(data.topics);
+    setTags(data.tags);
 
     setLoading(false);
   }, []);
@@ -50,8 +52,9 @@ export default function ChallengePage() {
               date={date}
               name={name}
               difficulty={difficulty}
-              athor={athor}
+              author={author}
               topics={topics}
+              tags={tags}
             />
           </div>
         </div>
