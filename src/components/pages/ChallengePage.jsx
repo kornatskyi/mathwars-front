@@ -10,7 +10,10 @@ const resourseSpecificator = "data/challenge1/challenge1.json";
 const url = host + resourseSpecificator;
 
 export default function ChallengePage() {
+  const challengeId = { id: 1 } || props.challengeId;
+
   const [loading, setLoading] = useState(true);
+  const [id, setId] = useState(0);
   const [text, setText] = useState("");
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
@@ -23,10 +26,28 @@ export default function ChallengePage() {
   const [topics, setTopics] = useState("");
   const [tags, setTags] = useState("");
 
+  //Fetch challenge data by id.
   useEffect(async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
+    // const xhr = new XMLHttpRequest();
+    // xhr.open("POST", "http://127.0.0.1:8125/challenge", true);
+    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    // xhr.onload = function () {
+    //   console.log(this.status);
+    // };
+
+    // xhr.send(JSON.stringify(challengeId));
+    const response = await fetch(host + "challenge", {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      body: JSON.stringify(challengeId), // body data type must match "Content-Type" header
+    })
+      .then((response) => response.text())
+
+    console.log(response);
+    const data = JSON.parse(response)
+    // console.log(data);
+    // console.log("somthing");
+
+
 
     setText(data.body.text);
     setDate(data.date);
@@ -39,10 +60,10 @@ export default function ChallengePage() {
     setAuthor(data.author);
     setTopics(data.topics);
     setTags(data.tags);
+    setId(data.id);
 
     setLoading(false);
   }, []);
-
   return (
     <div className="challenge-page-container">
       <div className="container  d-flex h-100 flex-column">
@@ -84,7 +105,7 @@ export default function ChallengePage() {
             </div>
             <div className="row">
               <div className="col col-12">
-                <ChallengePageAnswer />
+                <ChallengePageAnswer challengeId={id} host={host} />
               </div>
             </div>
           </div>
