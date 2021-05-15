@@ -8,6 +8,8 @@ export default function ChallengePageAnswer(props) {
     setInputValue(e.target.value);
   };
 
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
+
   const sendChallengeAnswerToTheServer = (challengeId, value, host) => {
     const options = {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -20,33 +22,52 @@ export default function ChallengePageAnswer(props) {
     fetch(host + "answer", options).then((response) => {
       return response.text().then((text) => {
         console.log(text);
+        setIsCorrectAnswer(() => {
+          return text === "true";
+        });
+        console.log(isCorrectAnswer);
       });
     });
   };
 
-  return (
-    <div className="challenge-page-answer-constainer">
-      <form>
-        <label htmlFor="answer">
-          <input
-            id="answer"
-            autoComplete="off"
-            className="form-control"
-            type="text"
-            placeholder="Your answer here..."
-            onChange={handleChange}
-          />
-        </label>
-        <button
-          className="btn btn-primary"
-          onClick={(e) => {
-            e.preventDefault();
-            sendChallengeAnswerToTheServer(props.challengeId, inputValue, host);
-          }}
-        >
-          Submit
-        </button>
-      </form>
-    </div>
-  );
+  if (isCorrectAnswer) {
+    return (
+      <div className="challenge-page-answer-constainer">
+        <div className="correct">
+          <span> Your answer is correct.</span>
+          <a className="btn btn-primary">Go next</a>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="challenge-page-answer-constainer">
+        <form>
+          <label htmlFor="answer">
+            <input
+              id="answer"
+              autoComplete="off"
+              className="form-control"
+              type="text"
+              placeholder="Your answer here..."
+              onChange={handleChange}
+            />
+          </label>
+          <button
+            className="btn btn-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              sendChallengeAnswerToTheServer(
+                props.challengeId,
+                inputValue,
+                host
+              );
+            }}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    );
+  }
 }

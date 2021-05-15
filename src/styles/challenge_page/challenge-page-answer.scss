@@ -16,26 +16,65 @@
                 height       : 100%;
                 width        : 100%;
                 border-radius: 0;
+
                 &:hover {
                     border-color: $yellow;
-                    color: $yellow;
+                    color       : $yellow;
                 }
 
             }
         }
 
         button {
-            width        : 20%;
-            min-width    : 100px;
-            border-radius: 0;  
-            background-color:transparent;
-            color: $light;
+            width           : 20%;
+            min-width       : 100px;
+            border-radius   : 0;
+            background-color: transparent;
+            color           : $light;
+
             &:hover {
-                border-color: $yellow;
-                color: $yellow;
+                border-color    : $yellow;
+                color           : $yellow;
                 background-color: transparent;
 
             }
         }
     }
+
+
+    //If answer correct
+    .correct {
+        display        : flex;
+        justify-content: space-between;
+        span {
+            margin: 0;
+            width : 100%;
+            height       : 100%;
+            width        : 100%;
+            border-radius: 0;
+            border-color: $success;
+            color       : $success;
+            margin: auto;
+            padding-left: 15px;
+        }
+
+        a {
+            width           : 30%;
+            min-width       : 100px;
+            border-radius   : 0;
+            background-color: transparent;
+            color           : $success;
+            border-color    : $success;
+            
+
+
+            &:hover {
+                border-color    : $yellow;
+                color           : $yellow;
+                background-color: transparent;
+
+            }
+        }
+    }
+
 }

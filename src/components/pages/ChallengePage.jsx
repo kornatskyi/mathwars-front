@@ -5,7 +5,7 @@ import ChallengePageDraft from "../../components/ChallengePageDraft.jsx";
 import ChallengePageHeader from "../../components/ChallengePageHeader.jsx";
 import ChallengePageToolsBar from "../../components/ChallengePageToolsBar.jsx";
 
-const host = "http://127.0.0.1:8125/";
+const host = "http://127.0.0.1:3000/";
 const resourseSpecificator = "data/challenge1/challenge1.json";
 const url = host + resourseSpecificator;
 
