@@ -1,9 +1,10 @@
-@import "./variables.scss";
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins";
 
 
 .challenge-container {
     display: flex;
-    background-color: $dark;
+    background-color: $dark-blue;
     border: 2px solid $yellow;
     margin: 20px 0px;
     &>* {

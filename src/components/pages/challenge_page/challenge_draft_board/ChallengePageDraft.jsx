@@ -1,4 +1,5 @@
 import React from 'react'
+import './challenge-page-draft.scss'
 
 export default function ChallengePageDraft() {
     return (

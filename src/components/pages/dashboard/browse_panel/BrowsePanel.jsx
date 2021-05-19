@@ -1,4 +1,5 @@
 import React from "react";
+import './browse-panel.scss'
 
 export default function BrowsePanel() {
   return (

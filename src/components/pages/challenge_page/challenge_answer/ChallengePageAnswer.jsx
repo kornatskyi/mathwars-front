@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './challenge-page-answer.scss'
 
 export default function ChallengePageAnswer(props) {
   const [inputValue, setInputValue] = useState("");

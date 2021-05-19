@@ -1,4 +1,5 @@
 import React from "react";
+import './challenge-block.scss';
 
 export default function ChallengeBlock() {
   return (

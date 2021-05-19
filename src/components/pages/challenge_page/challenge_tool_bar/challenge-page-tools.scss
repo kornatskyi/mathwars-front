@@ -1,5 +1,5 @@
-@import "../variables.scss";
-@import "../mixins";
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins";
 
 .challenge-page-tools-container {
     @include block-style;

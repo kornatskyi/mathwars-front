@@ -1,6 +1,6 @@
 import React from 'react'
-import Challenge from '../../components/ChallengeBlock.jsx'
-import BrowsePanel from '../../components/BrowsePanel.jsx'
+import Challenge from './challenge_block/ChallengeBlock.jsx'
+import BrowsePanel from './browse_panel/BrowsePanel.jsx'
 
 
 export default function ChallengePageBrowsePage() {

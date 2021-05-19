@@ -1,5 +1,6 @@
 import React from "react";
-import authorIcon from "../assets/images/challenge_data/challenge-author.svg";
+import authorIcon from "../../../../assets/images/challenge_data/challenge-author.svg";
+import './challenge-page-header.scss'
 
 export default function ChallengePageHeader(props) {
   return (

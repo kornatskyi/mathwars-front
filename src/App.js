@@ -7,17 +7,17 @@ import {
   Link
 } from "react-router-dom";
 
-import BrowsePage from './components/pages/BrowsePage.jsx'
-import ChallengePage from './components/pages/ChallengePage.jsx'
-import LeftNavbar from './components/LeftNavbar.jsx'
+import BrowsePage from './components/pages/dashboard/BrowsePage.jsx'
+import ChallengePage from './components/pages/challenge_page/ChallengePage.jsx'
+import Calculator from './components/calculator/Calculator.jsx'
 
 
 
 
 const App = () => (
   <div>
-    <LeftNavbar/>
-    <ChallengePage />
+    <ChallengePage/>
+    {/* <Calculator /> */}
   </div>
 )
 

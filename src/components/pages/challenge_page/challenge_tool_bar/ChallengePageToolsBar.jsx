@@ -1,7 +1,7 @@
 import React from "react";
-import calculatorSvg from "../assets/images/tools/calculator-white.svg";
-import formulaSvg from "../assets/images/tools/formula-white.svg";
-
+import calculatorSvg from "../../../../assets/images/tools/calculator-white.svg";
+import formulaSvg from "../../../../assets/images/tools/formula-white.svg";
+import './challenge-page-tools.scss'
 export default function ChallengePageToolsBar() {
   return (
     <div className="challenge-page-tools-container">

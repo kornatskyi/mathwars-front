@@ -1,4 +1,5 @@
 import React from "react";
+import './challenge-page-challenge-description.scss'
 
 export default function ChallengePageChallengeDescription(props) {
   if (props.loading) {

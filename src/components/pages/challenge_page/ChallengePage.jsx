@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ChallengePageAnswer from "../../components/ChallengePageAnswer.jsx";
-import ChallengePageChallengeDescription from "../../components/ChallengePageChallengeDescription.jsx";
-import ChallengePageDraft from "../../components/ChallengePageDraft.jsx";
-import ChallengePageHeader from "../../components/ChallengePageHeader.jsx";
-import ChallengePageToolsBar from "../../components/ChallengePageToolsBar.jsx";
+import ChallengePageAnswer from "./challenge_answer/ChallengePageAnswer.jsx";
+import ChallengePageChallengeDescription from "./challege_description/ChallengePageChallengeDescription.jsx";
+import ChallengePageDraft from "./challenge_draft_board/ChallengePageDraft.jsx";
+import ChallengePageHeader from "./challenge_header/ChallengePageHeader.jsx";
+import ChallengePageToolsBar from "./challenge_tool_bar/ChallengePageToolsBar.jsx";
+import './challenge-page.scss'
 
 const host = "http://127.0.0.1:3000/";
 const resourseSpecificator = "data/challenge1/challenge1.json";
