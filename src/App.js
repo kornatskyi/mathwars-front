@@ -9,14 +9,14 @@ import {
 
 import BrowsePage from './components/pages/dashboard/BrowsePage.jsx'
 import ChallengePage from './components/pages/challenge_page/ChallengePage.jsx'
-import Calculator from './components/calculator/Calculator.jsx'
+import Calculator from './components/calculator/Calculator.js'
 
 
 
 
 const App = () => (
   <div>
-    <ChallengePage/>
+    <Calculator/>
     {/* <Calculator /> */}
   </div>
 )
