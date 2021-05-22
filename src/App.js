@@ -16,7 +16,7 @@ import Calculator from './components/calculator/Calculator.js'
 
 const App = () => (
   <div>
-    <Calculator/>
+    <ChallengePage/>
     {/* <Calculator /> */}
   </div>
 )

@@ -4,6 +4,7 @@
 .calculator-container {
     width: 300px;
     height: 400px;
+    z-index: 1000;
     position: absolute;
     .titlebar {
         height: 20px;

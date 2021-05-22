@@ -67,6 +67,7 @@ export default function ChallengePage() {
   }, []);
   return (
     <div className="challenge-page-container">
+      <div className="calc-container"></div>
       <div className="container  d-flex h-100 flex-column">
         <div className="row">
           <div className="col col-12 mt-2 mb-2 pl-2 pr-0">
