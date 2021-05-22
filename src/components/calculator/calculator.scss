@@ -1,7 +1,13 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins';
 
-h1 {
-    color: red;
+.calculator-container {
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    .titlebar {
+        height: 20px;
+        background-color: $dark-blue;
+    }
 }
 
