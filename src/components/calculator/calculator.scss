@@ -5,7 +5,8 @@
     width: 300px;
     height: 400px;
     z-index: 1000;
-    position: absolute;
+    position: fixed;
+    float: right;
     .titlebar {
         height: 20px;
         background-color: $dark-blue;
