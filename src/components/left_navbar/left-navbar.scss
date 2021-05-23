@@ -13,6 +13,8 @@
     transition-property       : display, width;
     transition-timing-function: ease-in-out;
     width                     : 70px;
+    float: left;
+    left: 0;
 
     ul.navbar {
         padding: 0;

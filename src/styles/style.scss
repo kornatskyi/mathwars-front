@@ -1,6 +1,8 @@
-@import "~bootstrap/scss/bootstrap";
-@import "./variables.scss";
 
+
+@import "./variables.scss";
+@import "~bootstrap/scss/bootstrap";
+@import "_mixins.scss";
 
 
 body {
@@ -8,3 +10,10 @@ body {
     color: $light;
 }
 
+.main-container {
+    padding: 0px 0 0 70px;
+    
+    @include lg {
+        padding: 0px 70px;
+    }
+}

@@ -10,14 +10,27 @@ import {
 import BrowsePage from './components/pages/dashboard/BrowsePage.jsx'
 import ChallengePage from './components/pages/challenge_page/ChallengePage.jsx'
 import Calculator from './components/calculator/Calculator.js'
+import LeftNavbar from './components/left_navbar/LeftNavbar.jsx'
 
 
 
 
 const App = () => (
-  <div>
-    <ChallengePage/>
-    {/* <Calculator /> */}
+  <div className="main-container">
+  <Router>
+
+    <LeftNavbar />
+
+      <Switch>
+        <Route path="/search">
+          <BrowsePage />
+        </Route>
+        <Route path="/challenge">
+          <ChallengePage />
+        </Route>
+      </Switch>
+
+  </Router>
   </div>
 )
 

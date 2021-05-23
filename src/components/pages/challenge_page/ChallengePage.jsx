@@ -4,7 +4,7 @@ import ChallengePageChallengeDescription from "./challege_description/ChallengeP
 import ChallengePageDraft from "./challenge_draft_board/ChallengePageDraft.jsx";
 import ChallengePageHeader from "./challenge_header/ChallengePageHeader.jsx";
 import ChallengePageToolsBar from "./challenge_tool_bar/ChallengePageToolsBar.jsx";
-import './challenge-page.scss'
+import "./challenge-page.scss";
 
 const host = "http://127.0.0.1:3000/";
 const resourseSpecificator = "data/challenge1/challenge1.json";
@@ -29,26 +29,13 @@ export default function ChallengePage() {
 
   //Fetch challenge data by id.
   useEffect(async () => {
-    // const xhr = new XMLHttpRequest();
-    // xhr.open("POST", "http://127.0.0.1:8125/challenge", true);
-    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    // xhr.onload = function () {
-    //   console.log(this.status);
-    // };
-
-    // xhr.send(JSON.stringify(challengeId));
     const response = await fetch(host + "challenge", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       body: JSON.stringify(challengeId), // body data type must match "Content-Type" header
-    })
-      .then((response) => response.text())
+    }).then((response) => response.text());
 
     console.log(response);
-    const data = JSON.parse(response)
-    // console.log(data);
-    // console.log("somthing");
-
-
+    const data = JSON.parse(response);
 
     setText(data.body.text);
     setDate(data.date);

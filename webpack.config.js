@@ -9,6 +9,7 @@ module.exports = {
 
     devtool: 'inline-source-map',
     devServer: {
+        historyApiFallback: true, //makes browser keep components after refresh when using react router
         contentBase: path.join(__dirname, 'dist'),
         hot: true,
         port: 3001,

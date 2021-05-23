@@ -1,4 +1,7 @@
 import React from "react";
+import {
+  Link
+} from "react-router-dom";
 import logo from "../../assets/images/logo.svg";
 import search from "../../assets/images/navbar/search-solid.svg";
 import book from "../../assets/images/navbar/book-solid.svg";
@@ -10,28 +13,28 @@ export default function LeftNavbar() {
     <div className="left-navbar-container">
       <ul className="navbar">
         <li className="nav-item">
-          <a href="">
+          <Link to="/">
             <img className="logo" src={logo} alt="" />
             <span>Dashboard</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="">
+          <Link to="/search">
             <img src={search} alt="" />
             <span>Browse</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="">
+          <Link to="/challenge">
             <img src={book} alt="" />
-            <span>Resources</span>
-          </a>
+            <span>Challenge</span>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="">
+          <Link to="/forum">
             <img src={forum} alt="" />
             <span>Forum</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
