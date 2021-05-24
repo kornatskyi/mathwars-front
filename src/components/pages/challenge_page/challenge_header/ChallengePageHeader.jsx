@@ -1,13 +1,16 @@
 import React from "react";
 import authorIcon from "../../../../assets/images/challenge_data/challenge-author.svg";
-import './challenge-page-header.scss'
+import topicIcon from "../../../../assets/images/challenge_data/square-root-alt-solid.svg";
+import "./challenge-page-header.scss";
 
 export default function ChallengePageHeader(props) {
   return (
     <div className="challenge-page-header-constainer">
       <div className="left-header">
         <div className="main-info">
-          <div className="lvl">{props.difficulty}</div>
+          <div className="lvl">
+            <p>{props.difficulty}</p>
+          </div>
           <div className="name">
             <h4>{props.name}</h4>
           </div>
@@ -16,7 +19,9 @@ export default function ChallengePageHeader(props) {
         <div className="additional-info">
           <div className="author-container">
             <img src={authorIcon} alt="challenge author" />
-            <span>{props.author}</span>
+            <span>
+              <a href="">{props.author}</a>
+            </span>
           </div>
           <div className="tags">
             {Object.values(props.tags).map((tag, i) => (
@@ -29,10 +34,14 @@ export default function ChallengePageHeader(props) {
       </div>
 
       <div className="right-header">
-        <h6>Topics included</h6>
-        <span></span>
-        <span>Geometry 1</span>
-        <span>Equations</span>
+        {Object.values(props.topics).map((topicName, i) =>  (
+            <div className="topic-element" key={i}>
+            <img src={topicIcon} alt="math topic" />
+            <span>{topicName}</span>
+          </div>
+        ))}
+      
+
       </div>
     </div>
   );
