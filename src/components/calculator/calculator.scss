@@ -10,6 +10,16 @@
     .titlebar {
         height: 20px;
         background-color: $dark-blue;
+        display: flex;
+        justify-content: flex-end;
+
+        .close-calc {
+            height: 16px;
+            align-self: center;
+            line-height: 0;
+            margin-right: 2px;
+
+        }
     }
 }
 

@@ -17,10 +17,10 @@ export default class Calculator extends React.Component {
       operation: null,
       coordinateX: 100,
       coordinateY: 100,
-      hidden: this.props.claculatorHidden
+
     };
     this.drag = this.drag.bind(this);
-    console.log(this.props.claculatorHidden);
+
   }
 
   func = (e) => {
@@ -51,8 +51,13 @@ export default class Calculator extends React.Component {
 
   render() {
     return (
-      <div className="calculator-container" style={{ top: this.state.coordinateY + "px", left: this.state.coordinateX + "px" }} hidden={this.state.hidden}>
-        <div onMouseDown={(e) => this.drag(e)} onMouseUp={(e) => this.drag(e)} className="titlebar"></div>
+      <div
+       className="calculator-container"
+       style={{ top: this.state.coordinateY + "px", left: this.state.coordinateX + "px" }}
+        hidden={this.props.calculatorHidden}>
+        <div onMouseDown={(e) => this.drag(e)} onMouseUp={(e) => this.drag(e)} className="titlebar">
+          <button className="close-calc btn btn-danger" onClick={() => {this.props.setCalculatorHidden(!this.props.calculatorHidden)}}>x</button>
+        </div>
         <Display value={this.state.next || this.state.total || "0"} />
         <ButtonPanel clickHandler={this.handleClick} />
       </div >
