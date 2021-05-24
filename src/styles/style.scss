@@ -5,7 +5,9 @@
 @import "_mixins.scss";
 
 
+
 body {
+    font-family: $regular-font;
     background-color: $dark-blue90;
     color: $light;
 }

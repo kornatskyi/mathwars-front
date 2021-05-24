@@ -10,7 +10,6 @@ import './calculator.scss'
 export default class Calculator extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       total: null,
       next: null,
@@ -20,14 +19,13 @@ export default class Calculator extends React.Component {
 
     };
     this.drag = this.drag.bind(this);
-
   }
 
   func = (e) => {
-   
+
     this.setState(state => ({
-      coordinateX: e.clientX-20,
-      coordinateY: e.clientY -10
+      coordinateX: e.clientX - 20,
+      coordinateY: e.clientY - 10
     }))
   }
 
@@ -42,21 +40,18 @@ export default class Calculator extends React.Component {
 
   }
 
-
   handleClick = buttonName => {
     this.setState(calculate(this.state, buttonName));
-
-    
   };
 
   render() {
     return (
       <div
-       className="calculator-container"
-       style={{ top: this.state.coordinateY + "px", left: this.state.coordinateX + "px" }}
+        className="calculator-container"
+        style={{ top: this.state.coordinateY + "px", left: this.state.coordinateX + "px" }}
         hidden={this.props.calculatorHidden}>
         <div onMouseDown={(e) => this.drag(e)} onMouseUp={(e) => this.drag(e)} className="titlebar">
-          <button className="close-calc btn btn-danger" onClick={() => {this.props.setCalculatorHidden(!this.props.calculatorHidden)}}>x</button>
+          <button className="close-calc btn btn-danger" onClick={() => { this.props.setCalculatorHidden(!this.props.calculatorHidden) }}>x</button>
         </div>
         <Display value={this.state.next || this.state.total || "0"} />
         <ButtonPanel clickHandler={this.handleClick} />

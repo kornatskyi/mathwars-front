@@ -5,7 +5,7 @@ import formulaSvg from "../../../../assets/images/tools/formula-white.svg";
 import "./challenge-page-tools.scss";
 import Calculator from "../../../calculator/Calculator";
 export default function ChallengePageToolsBar() {
-  const [calculatorHidden, setCalculatorHidden] = useState(false);
+  const [calculatorHidden, setCalculatorHidden] = useState(true);
 
   const setCalculatorHiddenHendler = () => {
     setCalculatorHidden(!calculatorHidden);

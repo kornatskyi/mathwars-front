@@ -1,11 +1,36 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap'); */
 
-
-
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Fonts */
+@font-face {
+    font-family: "RobotoRegular";
+    src: local("RobotoRegular"),
+        url("./assets/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "RobotoBold";
+    src: local("RobotoRegular"),
+        url("./assets/fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+
+    font-weight: bold;
+}
+@font-face {
+    font-family: "RobotoLight";
+    src: local("RobotoRegular"),
+        url("./assets/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: "RobotoItalic";
+    src: local("RobotoRegular"),
+        url("./assets/fonts/Roboto/Roboto-Italic.ttf") format("truetype");
+
+    font-style: italic, oblique;
 }
