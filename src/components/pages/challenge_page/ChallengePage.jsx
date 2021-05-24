@@ -35,6 +35,7 @@ export default function ChallengePage() {
     }).then((response) => response.text());
 
     console.log(JSON.parse(response));
+    console.log(response);
     const data = JSON.parse(response);
 
     setText(data.body.text);

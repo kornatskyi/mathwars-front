@@ -11,6 +11,7 @@ import BrowsePage from './components/pages/dashboard/BrowsePage.jsx'
 import ChallengePage from './components/pages/challenge_page/ChallengePage.jsx'
 import Calculator from './components/calculator/Calculator.js'
 import LeftNavbar from './components/left_navbar/LeftNavbar.jsx'
+import AddChallenge from './components/pages/add_challenge_page/AddChallenge.jsx'
 
 
 
@@ -27,6 +28,9 @@ const App = () => (
         </Route>
         <Route path="/challenge">
           <ChallengePage />
+        </Route>
+        <Route path="/addchallenge">
+          <AddChallenge />
         </Route>
       </Switch>
 

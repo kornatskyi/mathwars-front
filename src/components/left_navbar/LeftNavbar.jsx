@@ -31,9 +31,9 @@ export default function LeftNavbar() {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/forum">
+          <Link to="/addchallenge">
             <img src={forum} alt="" />
-            <span>Forum</span>
+            <span>Add challenge</span>
           </Link>
         </li>
       </ul>
