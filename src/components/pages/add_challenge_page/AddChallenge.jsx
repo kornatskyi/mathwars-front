@@ -1,48 +1,25 @@
 import React from "react";
 
+const hostName = "http://localhost:3000/newchallenge"
+
 export default function AddChallenge() {
   const validateForm = () => {
 
     const form = document.querySelector(".form");
-    console.dir(form.challenge.value);
-    console.dir(form.body.value);
-    console.dir(form.task.value);
-    console.dir(form.answer.value);
-    console.dir(form.file.value);
-    console.dir(form.topics.value);
-    console.dir(form.tags.value);
-
-    const challenge = {
-      _id: "609dca28aae3ac406a83d46e",
-      id: 1,
-      date: "03/31/2021",
-      name: form.challenge.value,
-      body: {
-        text: form.body.value,
-        formulas: {
-          formula1:
-            '<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mn>8</mn><mo>,</mo><mo>&#xA0;</mo><mi>b</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mn>15</mn></math>',
-        },
-        shortTask: form.task.value,
-        answerType: "number",
-        answer: form.answer.value,
-        images: "triangle.png",
-        graphs: "false",
-      },
-      difficulty: 2,
-      author: "Author Name",
-      topics: form.topics.value,
-      tags: form.tags.value,
-    };
-
-    console.log(challenge);
+    var formData = new FormData(form);
+    fetch(hostName, {
+        method:"POST",
+        body: formData
+    })
   };
+
+
   return (
     <div className="add-challenge-component">
       <button onClick={validateForm} className="btn btn-primary">
         Submit
       </button>
-      <form className="form" action="#" method="POST">
+      <form className="form" action={hostName} method="POST">
         <div className="mb-3">
           <label htmlFor="challengeName" className="form-label">
             Challenge name
@@ -51,7 +28,7 @@ export default function AddChallenge() {
             type="text"
             className="form-control"
             id="challengeName"
-            name="challenge"
+            name="name"
             aria-describedby="emailHelp"
           />
           <div id="emailHelp" className="form-text">
@@ -79,7 +56,7 @@ export default function AddChallenge() {
             Task short form
           </label>
           <input
-            name="task"
+            name="shortTask"
             type="text"
             className="form-control"
             id="shortTask"
@@ -110,7 +87,7 @@ export default function AddChallenge() {
           </label>
           <input
             className="form-control"
-            name="file"
+            name="imageName"
             type="file"
             id="formFile"
           />
@@ -144,6 +121,16 @@ export default function AddChallenge() {
           <input type="text" name="tags" className="form-control" id="tags" />
           <div id="tagsHelp" className="form-text">
             Write tags separate by spases
+          </div>
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="authorName" className="form-label">
+            Author Name
+          </label>
+          <input type="text" name="authorName" className="form-control" id="authorName" />
+          <div id="tagsHelp" className="form-text">
+            name
           </div>
         </div>
       </form>
