@@ -14,6 +14,10 @@ export default function ChallengePageAnswer(props) {
   const sendChallengeAnswerToTheServer = (challengeId, value, host) => {
     const options = {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       body: JSON.stringify({
         id: challengeId,
         answer: value,
