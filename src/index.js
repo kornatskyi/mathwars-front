@@ -9,7 +9,7 @@ import './assets/fonts/Roboto/Roboto-Regular.ttf'
 import './assets/fonts/Roboto/Roboto-Bold.ttf'
 import './assets/fonts/Roboto/Roboto-Light.ttf'
 import './assets/fonts/Roboto/Roboto-Italic.ttf'
-
+import './assets/Asana-Math/Asana-Math.otf'
 
 
 

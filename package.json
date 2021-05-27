@@ -20,7 +20,9 @@
   "homepage": "https://github.com/kornatskyi/mathwars-front#readme",
   "dependencies": {
     "@popperjs/core": "^2.9.1",
+    "big.js": "^5.2.2",
     "bootstrap": "^4.6.0",
+    "guppy-js": "^2.0.0-beta.3",
     "html-react-parser": "^1.2.4",
     "html-to-react": "^1.4.5",
     "jquery": "^3.6.0",
@@ -35,8 +37,7 @@
     "react-mathjax": "^1.0.1",
     "react-mathjax2": "0.0.2",
     "react-mathlive": "^3.0.5-preview.1",
-    "react-router-dom": "^5.2.0",
-    "big.js": "^5.2.2"
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",

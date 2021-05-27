@@ -57,7 +57,7 @@ module.exports = {
                 ],
             },
 
-            { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+            { test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
             //removed svg from regex , for some reason url-loader brokes svg import
             { test: /\.(png|jpg|jpeg|gif)$/, loader: "url-loader" },
             { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader" },

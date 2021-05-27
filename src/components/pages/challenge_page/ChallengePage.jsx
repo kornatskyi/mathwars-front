@@ -30,9 +30,14 @@ export default function ChallengePage() {
   //Fetch challenge data by id.
   useEffect(async () => {
     const response = await fetch(host + "challenge", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      method: "POST", 
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },// *GET, POST, PUT, DELETE, etc.
       body: JSON.stringify(challengeId), // body data type must match "Content-Type" header
-    }).then((response) => response.text());
+    }).then((res) => res.text());
+
 
     console.log(JSON.parse(response));
     console.log(response);
