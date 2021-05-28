@@ -11,14 +11,13 @@ const resourseSpecificator = "data/challenge1/challenge1.json";
 const url = host + resourseSpecificator;
 
 export default function ChallengePage() {
-  const challengeId = { id: 1 } || props.challengeId;
+  const challengeId = { id: 4 } || props.challengeId;
 
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState(0);
-  const [text, setText] = useState("");
+  const [body, setBody] = useState("");
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
-  const [formulas, setFormulas] = useState("");
   const [shortTask, setShortTask] = useState("");
   const [answerType, setAnswerType] = useState("");
   const [images, setImages] = useState("");
@@ -30,26 +29,27 @@ export default function ChallengePage() {
   //Fetch challenge data by id.
   useEffect(async () => {
     const response = await fetch(host + "challenge", {
-      method: "POST", 
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
-      },// *GET, POST, PUT, DELETE, etc.
+      }, // *GET, POST, PUT, DELETE, etc.
       body: JSON.stringify(challengeId), // body data type must match "Content-Type" header
     }).then((res) => res.text());
 
+    console.log();
 
     console.log(JSON.parse(response));
     console.log(response);
     const data = JSON.parse(response);
 
-    setText(data.body.text);
+    setBody(data.body);
     setDate(data.date);
     setName(data.name);
-    setFormulas(data.body.formulas);
-    setShortTask(data.body.shortTask);
-    setAnswerType(data.body.answerType);
-    setImages(data.body.images);
+
+    setShortTask(data.shortTask);
+    setAnswerType(data.answerType);
+    setImages(data.images);
     setDifficulty(data.difficulty);
     setAuthor(data.author);
     setTopics(data.topics);
@@ -79,8 +79,7 @@ export default function ChallengePage() {
             <ChallengePageChallengeDescription
               loading={loading}
               name={name}
-              text={text}
-              formulas={formulas}
+              body={body}
               shortTask={shortTask}
               images={images}
               host={host}

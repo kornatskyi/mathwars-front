@@ -17,7 +17,7 @@ export default function ChallengePageChallengeDescription(props) {
     return (
       <div className="challenge-page-challenge-description-constainer">
         <h2>Task</h2>
-        <p>{props.text}</p>
+        <div className="challenge" dangerouslySetInnerHTML={{ __html: props.body }}></div>
         <img src={props.host + props.images} alt="" />
         <div className="formula">
           <script
@@ -25,11 +25,12 @@ export default function ChallengePageChallengeDescription(props) {
             type="text/javascript"
             src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
           ></script>
+
           <span
-            // dangerouslySetInnerHTML={{ __html: props.formulas["formula1"] }}
-            dangerouslySetInnerHTML={{ __html: katex.renderToString(Mathml2latex.convert(props.formulas["formula1"])) }}
+            // dangerouslySetInnerHTML={{ __html: props.body }}
+            dangerouslySetInnerHTML={{ __html: katex.renderToString(Mathml2latex.convert(props.body)) }}
           ></span>
-          {console.log(katex.renderToString(Mathml2latex.convert(props.formulas["formula1"])) )}
+          {/* {console.log(katex.renderToString(Mathml2latex.convert(props.formulas["formula1"])) )} */}
           
         </div>
   

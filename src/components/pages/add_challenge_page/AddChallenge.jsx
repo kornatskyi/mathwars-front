@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../../../node_modules/guppy-js/guppy-default.min.css";
 import "../../../../node_modules/guppy-js/guppy";
 
@@ -14,28 +14,60 @@ import Editor from "../../../../ckeditor5/build/ckeditor";
 const hostName = "http://localhost:3000/newchallenge";
 
 export default function AddChallenge() {
+  const [editorData, setEditorData] = useState("<h3>Default data!</h3>");
+
   const validateForm = () => {
-    const form = document.querySelector(".form");
-    var formData = new FormData(form);
+    const name = document.getElementById("name");
+    const shortTask = document.getElementById("shortTask");
+    const answer = document.getElementById("answer");
+    const image = document.getElementById("image");
+    const topics = document.getElementById("topics");
+    const tags = document.getElementById("tags");
+    const authorName = document.getElementById("authorName");
+
+    var myFormData = new FormData();
+
+    myFormData.append("name", name.value);
+    myFormData.append("body", editorData);
+    myFormData.append("shortTask", shortTask.value);
+    myFormData.append("answer", answer.value);
+
+    myFormData.append("topics", topics.value);
+    myFormData.append("tags", tags.value);
+    myFormData.append("authorName", authorName.value);
+    console.log("myFormData");
+
+    if (!!image.value) {
+      try {
+        myFormData.append(
+          "image",
+          document.getElementById("image").files[0],
+          document.getElementById("image").files[0].name
+        );
+      } catch {
+        console.warn("Some problems with image atachment");
+      }
+    }
+
     fetch(hostName, {
       method: "POST",
-      body: formData,
+      body: myFormData,
     });
   };
 
   return (
     <div className="add-challenge-component">
       <div className="container">
-        <form className="form row" action={hostName} method="POST">
+        <form className="form row">
           <div className="col">
             <div className="mb-3">
-              <label htmlFor="challengeName" className="form-label">
+              <label htmlFor="name" className="form-label">
                 Challenge name
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="challengeName"
+                id="name"
                 name="name"
                 aria-describedby="emailHelp"
               />
@@ -45,11 +77,11 @@ export default function AddChallenge() {
             </div>
 
             <div className="mb-3">
-                Body of a challenge
+              Body of a challenge
               <div className="ckeditor">
                 <CKEditor
                   editor={Editor}
-                  data="<p>Hello from CKEditor 5!</p>"
+                  data={editorData}
                   config={{
                     plugins: [
                       "Autoformat",
@@ -92,39 +124,13 @@ export default function AddChallenge() {
 
                       // Chemestry input MathType plugin
                       // "ChemType",
-
                     ],
-                  }}
-                  onReady={(editor) => {
-                    // You can store the "editor" and use when it is needed.
-                    console.log("Editor is ready to use!", editor);
                   }}
                   onChange={(event, editor) => {
                     const data = editor.getData();
-                    console.log({ event, editor, data });
-                  }}
-                  onBlur={(event, editor) => {
-                    console.log("Blur.", editor);
-                  }}
-                  onFocus={(event, editor) => {
-                    console.log("Focus.", editor);
+                    setEditorData(data);
                   }}
                 />
-              </div>
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="formula" className="form-label">
-                Formula
-              </label>
-              <input
-                name="formula"
-                type="text"
-                className="form-control"
-                id="formula"
-              />
-              <div id="formulaHelp" className="form-text">
-                Add formula in MathML format
               </div>
             </div>
 
@@ -162,14 +168,14 @@ export default function AddChallenge() {
           <div className="col-sm-5">
             {" "}
             <div className="mb-3">
-              <label htmlFor="formFile" className="form-label">
+              <label htmlFor="image" className="form-label">
                 Immage for the challenge
               </label>
               <input
                 className="form-control"
-                name="imageName"
+                name="image"
                 type="file"
-                id="formFile"
+                id="image"
               />
             </div>
             <div>
@@ -220,11 +226,11 @@ export default function AddChallenge() {
                 name
               </div>
             </div>
-            <button onClick={validateForm} className="btn btn-primary">
-              Submit
-            </button>
           </div>
         </form>
+        <button onClick={validateForm} className="btn btn-primary">
+          Submit
+        </button>
       </div>
     </div>
   );
