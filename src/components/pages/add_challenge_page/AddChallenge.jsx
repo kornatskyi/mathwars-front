@@ -1,9 +1,17 @@
 import React from "react";
-import '../../../../node_modules/guppy-js/guppy-default.min.css';
-import '../../../../node_modules/guppy-js/guppy';
+import "../../../../node_modules/guppy-js/guppy-default.min.css";
+import "../../../../node_modules/guppy-js/guppy";
+
+import "./add-challenge.scss";
+
+/*
+ *  Using CKEditor5 custom build with math Type plugin to create body of the challege.
+ *  Docs of CKEditor5 look here https://ckeditor.com/docs/ckeditor5/latest/
+ */
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import Editor from "../../../../ckeditor5/build/ckeditor";
 
 const hostName = "http://localhost:3000/newchallenge";
-
 
 export default function AddChallenge() {
   const validateForm = () => {
@@ -15,10 +23,8 @@ export default function AddChallenge() {
     });
   };
 
-
   return (
     <div className="add-challenge-component">
-       <div id="guppy1" style={{width:"400px"}}></div>
       <div className="container">
         <form className="form row" action={hostName} method="POST">
           <div className="col">
@@ -39,17 +45,71 @@ export default function AddChallenge() {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="body" className="form-label">
                 Body of a challenge
-              </label>
-              <textarea
-                className="form-control"
-                id="body"
-                rows="3"
-                name="body"
-              ></textarea>
-              <div id="bodyInputHelp" className="form-text">
-                All formulas write in MathML format
+              <div className="ckeditor">
+                <CKEditor
+                  editor={Editor}
+                  data="<p>Hello from CKEditor 5!</p>"
+                  config={{
+                    plugins: [
+                      "Autoformat",
+                      "BlockQuote",
+                      "Bold",
+                      "CloudServices",
+                      "Essentials",
+                      "Heading",
+                      "Indent",
+                      "Italic",
+                      "Link",
+                      "List",
+                      "MathType",
+                      "Paragraph",
+                      "PasteFromOffice",
+                      "SpecialCharacters",
+                      "SpecialCharactersMathematical",
+                      "Table",
+                      "TableToolbar",
+                      "TextTransformation",
+                    ],
+                    toolbar: [
+                      "heading",
+                      "|",
+                      "bold",
+                      "italic",
+                      "link",
+                      "bulletedList",
+                      "numberedList",
+                      "|",
+                      "outdent",
+                      "indent",
+                      "|",
+                      "blockQuote",
+                      "insertTable",
+                      "undo",
+                      "redo",
+                      "specialCharacters",
+                      "MathType",
+
+                      // Chemestry input MathType plugin
+                      // "ChemType",
+
+                    ],
+                  }}
+                  onReady={(editor) => {
+                    // You can store the "editor" and use when it is needed.
+                    console.log("Editor is ready to use!", editor);
+                  }}
+                  onChange={(event, editor) => {
+                    const data = editor.getData();
+                    console.log({ event, editor, data });
+                  }}
+                  onBlur={(event, editor) => {
+                    console.log("Blur.", editor);
+                  }}
+                  onFocus={(event, editor) => {
+                    console.log("Focus.", editor);
+                  }}
+                />
               </div>
             </div>
 

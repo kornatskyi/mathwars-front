@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/kornatskyi/mathwars-front#readme",
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^27.1.0",
+    "@ckeditor/ckeditor5-react": "^3.0.2",
     "@popperjs/core": "^2.9.1",
     "big.js": "^5.2.2",
     "bootstrap": "^4.6.0",

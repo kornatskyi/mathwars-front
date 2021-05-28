@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+	Copyright (c) 2014-2021, CKSource - Frederico Knabben. All rights reserved.
+	This file is licensed under the terms of the MIT License (see LICENSE.md).
+-->
+
+<html lang="en" dir="ltr">
+
+</html>
+
+<head>
+	<title>CKEditor 5 InlineEditor build</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="https://c.cksource.com/a/1/logos/ckeditor5.png">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body data-editor="InlineEditor" data-collaboration="false">
+		<div class="editor">hello</div>
+	<script src="../build/ckeditor.js"></script>
+	<script>InlineEditor
+			.create(document.querySelector('.editor'), {
+
+				toolbar: {
+					items: [
+						'heading',
+						'|',
+						'bold',
+						'italic',
+						'link',
+						'bulletedList',
+						'numberedList',
+						'|',
+						'outdent',
+						'indent',
+						'|',
+						'imageUpload',
+						'blockQuote',
+						'insertTable',
+						'mediaEmbed',
+						'undo',
+						'redo',
+						'specialCharacters',
+						'MathType',
+						'ChemType'
+					]
+				},
+				language: 'en',
+				image: {
+					toolbar: [
+						'imageTextAlternative',
+						'imageStyle:full',
+						'imageStyle:side'
+					]
+				},
+				table: {
+					contentToolbar: [
+						'tableColumn',
+						'tableRow',
+						'mergeTableCells'
+					]
+				},
+				licenseKey: '',
+
+
+			})
+			.then(editor => {
+				window.editor = editor;
+
+
+
+
+
+
+
+
+			})
+			.catch(error => {
+				console.error('Oops, something went wrong!');
+				console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+				console.warn('Build id: 2ph08h1k5tsu-tt7stl1mhzac');
+				console.error(error);
+			});
+	</script>
+</body>
