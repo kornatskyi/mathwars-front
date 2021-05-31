@@ -37,10 +37,7 @@ export default function ChallengePage() {
       body: JSON.stringify(challengeId), // body data type must match "Content-Type" header
     }).then((res) => res.text());
 
-    console.log();
 
-    console.log(JSON.parse(response));
-    console.log(response);
     const data = JSON.parse(response);
 
     setBody(data.body);
