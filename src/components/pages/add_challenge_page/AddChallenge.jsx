@@ -14,7 +14,9 @@ import Editor from "../../../../ckeditor5/build/ckeditor";
 const hostName = "http://localhost:3000/newchallenge";
 
 export default function AddChallenge() {
-  const [editorData, setEditorData] = useState("<h3>Default data!</h3>");
+  const [editorData, setEditorData] = useState(
+    "<p>Write challenge body here...</p>"
+  );
 
   const validateForm = () => {
     const name = document.getElementById("name");
@@ -52,6 +54,15 @@ export default function AddChallenge() {
     fetch(hostName, {
       method: "POST",
       body: myFormData,
+    }).then(response => {
+      if(response.status !== 200) {
+        alert(response.statusText)
+      } 
+      return response.text()
+    }).then(text => {
+      alert(text)
+      location.reload()
+
     });
   };
 
@@ -65,6 +76,7 @@ export default function AddChallenge() {
                 Challenge name
               </label>
               <input
+                autoComplete="off"
                 type="text"
                 className="form-control"
                 id="name"
@@ -139,6 +151,7 @@ export default function AddChallenge() {
                 Task short form
               </label>
               <input
+                autoComplete="off"
                 name="shortTask"
                 type="text"
                 className="form-control"
@@ -154,6 +167,7 @@ export default function AddChallenge() {
                 Answer
               </label>
               <input
+                autoComplete="off"
                 type="text"
                 name="answer"
                 className="form-control"
@@ -172,7 +186,7 @@ export default function AddChallenge() {
                 Immage for the challenge
               </label>
               <input
-                className="form-control"
+                className="file-attachment"
                 name="image"
                 type="file"
                 id="image"
@@ -183,17 +197,13 @@ export default function AddChallenge() {
                 Topics
               </label>
               <input
+                autoComplete="off"
                 className="form-control"
-                list="datalistOptions"
                 id="topics"
                 placeholder="Type to search..."
                 name="topics"
               />
-              <datalist id="datalistOptions">
-                <option value="Algebra"></option>
-                <option value="Calculus"></option>
-                <option value="Geometry"></option>
-              </datalist>
+
               <div id="topicsHelp" className="form-text">
                 input topics
               </div>
@@ -203,6 +213,7 @@ export default function AddChallenge() {
                 Tags
               </label>
               <input
+                autoComplete="off"
                 type="text"
                 name="tags"
                 className="form-control"
@@ -217,12 +228,13 @@ export default function AddChallenge() {
                 Author Name
               </label>
               <input
+                autoComplete="off"
                 type="text"
                 name="authorName"
                 className="form-control"
                 id="authorName"
               />
-              <div id="tagsHelp" className="form-text">
+              <div id="authorHelp" className="form-text">
                 name
               </div>
             </div>

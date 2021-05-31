@@ -2,7 +2,12 @@ import React from "react";
 import Challenge from "./challenge_block/ChallengeBlock.jsx";
 import BrowsePanel from "./browse_panel/BrowsePanel.jsx";
 
+
+
 export default function ChallengePageBrowsePage() {
+
+  
+
   return (
     <div>
       <div className="container">
