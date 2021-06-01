@@ -3,6 +3,8 @@ import React from 'react';
 import './styles/style.scss'
 import './index.css';
 import App from "./App.js";
+import store from './redux/store'
+import { Provider } from 'react-redux'
 
 //Fonts
 import './assets/fonts/Roboto/Roboto-Regular.ttf'
@@ -13,4 +15,4 @@ import './assets/Asana-Math/Asana-Math.otf'
 
 
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.querySelector('#root'));
