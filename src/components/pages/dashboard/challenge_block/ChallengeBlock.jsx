@@ -1,8 +1,15 @@
 import React from "react";
 import "./challenge-block.scss";
 
+import { Link } from "react-router-dom";
+
+import { useSelector, useDispatch } from "react-redux";
+import { addChallenge } from "../../../../redux/challengeSlice";
+
 export default function ChallengeBlock(props) {
   console.log(props);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="challenge-container">
@@ -22,8 +29,18 @@ export default function ChallengeBlock(props) {
         </div>
       </div>
       <div className="right-column">
-        <p  dangerouslySetInnerHTML={{__html: props.body }}></p>
-        <button className="btn btn-primary">Train</button>
+        <p dangerouslySetInnerHTML={{ __html: props.body }}></p>
+        <Link to="/challenge">
+
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              dispatch(addChallenge(props));
+            }}
+          >
+            Train
+          </button>
+        </Link>
       </div>
     </div>
   );

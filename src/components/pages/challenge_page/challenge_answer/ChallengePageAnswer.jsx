@@ -1,39 +1,42 @@
 import React, { useState } from "react";
-import './challenge-page-answer.scss'
+import "./challenge-page-answer.scss";
 
 export default function ChallengePageAnswer(props) {
   const [inputValue, setInputValue] = useState("");
-  const host = props.host;
+  // const host = props.host;
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
 
+  const checkAnswer = (answer, trueAnswer) =>
+    answer === trueAnswer ? true : false;
+
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
 
-  const sendChallengeAnswerToTheServer = (challengeId, value, host) => {
-    const options = {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify({
-        id: challengeId,
-        answer: value,
-      }),
-    };
+  // const sendChallengeAnswerToTheServer = (challengeId, value, host) => {
+  //   const options = {
+  //     method: "POST", // *GET, POST, PUT, DELETE, etc.
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //       // 'Content-Type': 'application/x-www-form-urlencoded',
+  //     },
+  //     body: JSON.stringify({
+  //       id: challengeId,
+  //       answer: value,
+  //     }),
+  //   };
 
-    fetch(host + "answer", options).then((response) => {
-      return response.text().then((text) => {
-        console.log(text);
-        setIsCorrectAnswer(() => {
-          return text === "true";
-        });
-        console.log(isCorrectAnswer);
-      });
-    });
-  };
+  //   fetch(host + "answer", options).then((response) => {
+  //     return response.text().then((text) => {
+  //       console.log(text);
+  //       setIsCorrectAnswer(() => {
+  //         return text === "true";
+  //       });
+  //       console.log(isCorrectAnswer);
+  //     });
+  //   });
+  // };
 
   if (isCorrectAnswer) {
     return (
@@ -62,11 +65,7 @@ export default function ChallengePageAnswer(props) {
             className="btn btn-primary"
             onClick={(e) => {
               e.preventDefault();
-              sendChallengeAnswerToTheServer(
-                props.challengeId,
-                inputValue,
-                host
-              );
+              setIsCorrectAnswer(checkAnswer(inputValue, props.answer));
             }}
           >
             Submit

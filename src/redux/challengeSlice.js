@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const challengeSlice = createSlice({
     name: 'challenge',
     initialState: {
-      name: "hello"
+      data: "hello"
     },
     reducers: {
       addChallenge: (state, action) => {
@@ -13,7 +13,7 @@ export const challengeSlice = createSlice({
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
 
-        state.name = action.payload;
+        state.data = action.payload;
       },
     }
   })

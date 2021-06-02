@@ -8,52 +8,15 @@ import "./challenge-page.scss";
 
 import * as CONST from '../../../settings/constants'
 
+import { useSelector, useDispatch } from "react-redux";
+// import { addChallenge } from "../../../../redux/challengeSlice";
+
 
 export default function ChallengePage() {
-  const challengeId = { id: 4 } || props.challengeId;
+  const challenge = useSelector(state => state.challenge.data)
 
-  const [loading, setLoading] = useState(true);
-  const [id, setId] = useState(0);
-  const [body, setBody] = useState("");
-  const [date, setDate] = useState("");
-  const [name, setName] = useState("");
-  const [shortTask, setShortTask] = useState("");
-  const [answerType, setAnswerType] = useState("");
-  const [images, setImages] = useState("");
-  const [difficulty, setDifficulty] = useState("");
-  const [author, setAuthor] = useState("");
-  const [topics, setTopics] = useState("");
-  const [tags, setTags] = useState("");
-
-  //Fetch challenge data by id.
-  useEffect(async () => {
-    const response = await fetch(CONST.API_HOST + "challenge", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      }, // *GET, POST, PUT, DELETE, etc.
-      body: JSON.stringify(challengeId), // body data type must match "Content-Type" header
-    }).then((res) => res.text());
-
-
-    const data = JSON.parse(response);
-
-    setBody(data.body);
-    setDate(data.date);
-    setName(data.name);
-
-    setShortTask(data.shortTask);
-    setAnswerType(data.answerType);
-    setImages(data.images);
-    setDifficulty(data.difficulty);
-    setAuthor(data.author);
-    setTopics(data.topics);
-    setTags(data.tags);
-    setId(data.id);
-
-    setLoading(false);
-  }, []);
+  console.log(challenge);
+  
   return (
     <div className="challenge-page-container">
       <div className="calc-container"></div>
@@ -61,25 +24,25 @@ export default function ChallengePage() {
         <div className="row">
           <div className="col col-12 mt-2 mb-2 pl-2 pr-0">
             <ChallengePageHeader
-              date={date}
-              name={name}
-              difficulty={difficulty}
-              author={author}
-              topics={topics}
-              tags={tags}
+              date={challenge.date}
+              name={challenge.name}
+              difficulty={challenge.difficulty}
+              author={challenge.author}
+              topics={challenge.topics}
+              tags={challenge.tags}
             />
           </div>
         </div>
         <div className="row  flex-fill ">
           <div className="col col-12 col-md-5 pl-2 pr-0 pb-2">
             <ChallengePageChallengeDescription
-              loading={loading}
-              name={name}
-              body={body}
-              shortTask={shortTask}
-              images={images}
+              loading={challenge.loading}
+              name={challenge.name}
+              body={challenge.body}
+              shortTask={challenge.shortTask}
+              images={challenge.images}
               host={CONST.API_HOST}
-              answerType={answerType}
+              answerType={challenge.answerType}
             />
           </div>
           <div className="col col-12 col-md-7 d-flex h-100 flex-column pl-2  pr-0 pb-2">
@@ -95,7 +58,7 @@ export default function ChallengePage() {
             </div>
             <div className="row">
               <div className="col col-12">
-                <ChallengePageAnswer challengeId={id} host={CONST.API_HOST} />
+                <ChallengePageAnswer answer={challenge.answer} />
               </div>
             </div>
           </div>

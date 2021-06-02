@@ -37,6 +37,7 @@ export default function ChallengePageBrowsePage() {
                 tags={challenge.tags}
                 topics={challenge.topics}
                 images={challenge.images}
+                answer={challenge.answer}
               />
             );
           })
