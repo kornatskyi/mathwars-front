@@ -10,42 +10,17 @@ import {
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import BrowsePage from "./components/pages/dashboard/BrowsePage.jsx";
+import BrowsePage from "./components/pages/browse_page/BrowsePage.jsx";
 import ChallengePage from "./components/pages/challenge_page/ChallengePage.jsx";
 import Calculator from "./components/calculator/Calculator.js";
 import LeftNavbar from "./components/left_navbar/LeftNavbar.jsx";
 import AddChallenge from "./components/pages/add_challenge_page/AddChallenge.jsx";
-
-
-import {
-  loadState,
-  saveState
-} from './redux/localStorage'
-import { useSelector, useDispatch } from "react-redux";
-import { addChallenge } from "./redux/challengeSlice";
-import { add } from "lodash";
-
-
-const App = (props) => {
-
-  const dispatch = useDispatch();
-
-  // // dispatch(addChallenge(loadState()))
-
-  // const storageState = useSelector(state => state.challenge)
-
-  // // saveState(storageState)
-
-
-
-  // props.store.subscribe(() => {
-  //   saveState(storageState)
-  //   console.log(storageState);
-  // })
+import HomePage from './components/pages/home_page/HomePage'
 
 
 
 
+const App = () => {
 
   return (
     <div className="main-container">
@@ -53,7 +28,10 @@ const App = (props) => {
       <Router>
         <LeftNavbar />
         <Switch>
-          <Route path="/search">
+        <Route path="/">
+            <HomePage />
+          </Route>
+          <Route path="/browse">
             <BrowsePage />
           </Route>
           <Route path="/resourses">
@@ -61,9 +39,7 @@ const App = (props) => {
           <Route path="/addchallenge">
             <AddChallenge />
           </Route>
-          <Route path="/challenge">
-            <ChallengePage />
-          </Route>
+
         </Switch>
       </Router>
     </div>

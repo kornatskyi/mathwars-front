@@ -1,0 +1,29 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins";
+
+
+.home-page-container {
+    .title {
+       h1 {
+        text-align: center;
+       }
+    }
+    .desctription {
+        padding: 0 25%;
+        p {
+            text-align: center;
+        }
+    }
+    .navigation {
+        display:flex;
+        justify-content: space-around;
+        div {
+            border: 2px solid $yellow;
+            color: $yellow;
+            &:hover {
+                color: white;
+                background-color: $yellow;
+            }
+        }
+    }
+}
