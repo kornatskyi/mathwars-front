@@ -6,17 +6,17 @@ import ChallengePageHeader from "./challenge_header/ChallengePageHeader.jsx";
 import ChallengePageToolsBar from "./challenge_tool_bar/ChallengePageToolsBar.jsx";
 import "./challenge-page.scss";
 
-import * as CONST from '../../../settings/constants'
+import * as CONST from "../../../settings/constants";
 
 import { useSelector, useDispatch } from "react-redux";
 // import { addChallenge } from "../../../../redux/challengeSlice";
 
+import { loadState } from "../../../redux/localStorage";
 
 export default function ChallengePage() {
-  const challenge = useSelector(state => state.challenge.data)
+  //load challenge data from local storage
+  const challenge = loadState().data;
 
-  console.log(challenge);
-  
   return (
     <div className="challenge-page-container">
       <div className="calc-container"></div>

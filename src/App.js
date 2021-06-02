@@ -17,7 +17,34 @@ import LeftNavbar from "./components/left_navbar/LeftNavbar.jsx";
 import AddChallenge from "./components/pages/add_challenge_page/AddChallenge.jsx";
 
 
-const App = () => {
+import {
+  loadState,
+  saveState
+} from './redux/localStorage'
+import { useSelector, useDispatch } from "react-redux";
+import { addChallenge } from "./redux/challengeSlice";
+import { add } from "lodash";
+
+
+const App = (props) => {
+
+  const dispatch = useDispatch();
+
+  // // dispatch(addChallenge(loadState()))
+
+  // const storageState = useSelector(state => state.challenge)
+
+  // // saveState(storageState)
+
+
+
+  // props.store.subscribe(() => {
+  //   saveState(storageState)
+  //   console.log(storageState);
+  // })
+
+
+
 
 
   return (

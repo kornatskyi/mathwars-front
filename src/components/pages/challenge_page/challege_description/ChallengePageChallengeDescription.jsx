@@ -4,8 +4,7 @@ import "./challenge-page-challenge-description.scss";
 //This is working for some reason I should make something more consistent to display math formulas
 import MathJax from "react-mathjax-preview";
 
-const Mathml2latex = require("mathml-to-latex");
-const katex = require("katex");
+
 
 export default function ChallengePageChallengeDescription(props) {
   if (props.loading) {
