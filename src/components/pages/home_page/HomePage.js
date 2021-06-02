@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './home-page.scss'
+import "./home-page.scss";
 
 export default function HomePage() {
   return (
@@ -12,24 +12,24 @@ export default function HomePage() {
         <p>
           The main goal of this project is to make math practice available on
           the internet. I was inspired to create this project by the website
-          with programers challenges called CodeWars.
+          with programer's challenges called <a href="https://www.codewars.com/">CodeWars</a> .
         </p>
       </div>
 
       <div className="navigation">
-        <Link to="/resourses">
+        <Link to="/browse">
           <div>
             <p>Explore challenges</p>
           </div>
         </Link>
-        <Link to="/resourses">
+        <Link to="/addchallenge">
           <div>
-            <p>Explore challenges</p>
+            <p>Share your experience</p>
           </div>
         </Link>
         <Link to="/resourses">
           <div>
-            <p>Explore challenges</p>
+            <p>Learn new things</p>
           </div>
         </Link>
       </div>

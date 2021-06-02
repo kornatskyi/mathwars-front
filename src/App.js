@@ -20,7 +20,7 @@ import HomePage from './components/pages/home_page/HomePage'
 
 
 
-const App = () => {
+const App = (props) => {
 
   return (
     <div className="main-container">
@@ -28,9 +28,6 @@ const App = () => {
       <Router>
         <LeftNavbar />
         <Switch>
-        <Route path="/">
-            <HomePage />
-          </Route>
           <Route path="/browse">
             <BrowsePage />
           </Route>
@@ -39,7 +36,12 @@ const App = () => {
           <Route path="/addchallenge">
             <AddChallenge />
           </Route>
-
+          <Route path="/challenge">
+            <ChallengePage />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
         </Switch>
       </Router>
     </div>
