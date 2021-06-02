@@ -1,6 +1,9 @@
 import React from "react";
 import "./challenge-page-challenge-description.scss";
 
+//This is working for some reason I should make something more consistent to display math formulas
+import MathJax from "react-mathjax-preview";
+
 const Mathml2latex = require("mathml-to-latex");
 const katex = require("katex");
 
@@ -15,26 +18,8 @@ export default function ChallengePageChallengeDescription(props) {
     return (
       <div className="challenge-page-challenge-description-constainer">
         <h2>Task</h2>
-        <div
-          className="challenge"
-          dangerouslySetInnerHTML={{ __html: props.body }}
-        ></div>
+        <MathJax math={props.body} />
         <img src={props.host + props.images} alt="" />
-        <div className="formula">
-          <script
-            defer
-            type="text/javascript"
-            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-          ></script>
-
-          <span
-            // dangerouslySetInnerHTML={{ __html: props.body }}
-            dangerouslySetInnerHTML={{
-              __html: katex.renderToString(Mathml2latex.convert(props.body)),
-            }}
-          ></span>
-          {/* {console.log(katex.renderToString(Mathml2latex.convert(props.formulas["formula1"])) )} */}
-        </div>
 
         <div>To find: {props.shortTask}</div>
         <div>Answer format: {props.answerType} </div>
