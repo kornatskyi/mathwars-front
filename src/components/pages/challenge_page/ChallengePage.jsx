@@ -6,9 +6,8 @@ import ChallengePageHeader from "./challenge_header/ChallengePageHeader.jsx";
 import ChallengePageToolsBar from "./challenge_tool_bar/ChallengePageToolsBar.jsx";
 import "./challenge-page.scss";
 
-const host = "http://127.0.0.1:3000/";
-const resourseSpecificator = "data/challenge1/challenge1.json";
-const url = host + resourseSpecificator;
+import * as CONST from '../../../settings/constants'
+
 
 export default function ChallengePage() {
   const challengeId = { id: 4 } || props.challengeId;
@@ -28,7 +27,7 @@ export default function ChallengePage() {
 
   //Fetch challenge data by id.
   useEffect(async () => {
-    const response = await fetch(host + "challenge", {
+    const response = await fetch(CONST.API_HOST + "challenge", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +78,7 @@ export default function ChallengePage() {
               body={body}
               shortTask={shortTask}
               images={images}
-              host={host}
+              host={CONST.API_HOST}
               answerType={answerType}
             />
           </div>
@@ -96,7 +95,7 @@ export default function ChallengePage() {
             </div>
             <div className="row">
               <div className="col col-12">
-                <ChallengePageAnswer challengeId={id} host={host} />
+                <ChallengePageAnswer challengeId={id} host={CONST.API_HOST} />
               </div>
             </div>
           </div>

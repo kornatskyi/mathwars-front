@@ -1,23 +1,24 @@
 import React from "react";
 import "./challenge-page-challenge-description.scss";
 
-const Mathml2latex = require('mathml-to-latex');
-const katex = require('katex');
+const Mathml2latex = require("mathml-to-latex");
+const katex = require("katex");
 
 export default function ChallengePageChallengeDescription(props) {
   if (props.loading) {
     return (
       <div className="challenge-page-challenge-description-constainer">
         <div>Waiting for challenge load...</div>
-
       </div>
     );
   } else {
-
     return (
       <div className="challenge-page-challenge-description-constainer">
         <h2>Task</h2>
-        <div className="challenge" dangerouslySetInnerHTML={{ __html: props.body }}></div>
+        <div
+          className="challenge"
+          dangerouslySetInnerHTML={{ __html: props.body }}
+        ></div>
         <img src={props.host + props.images} alt="" />
         <div className="formula">
           <script
@@ -28,13 +29,13 @@ export default function ChallengePageChallengeDescription(props) {
 
           <span
             // dangerouslySetInnerHTML={{ __html: props.body }}
-            dangerouslySetInnerHTML={{ __html: katex.renderToString(Mathml2latex.convert(props.body)) }}
+            dangerouslySetInnerHTML={{
+              __html: katex.renderToString(Mathml2latex.convert(props.body)),
+            }}
           ></span>
           {/* {console.log(katex.renderToString(Mathml2latex.convert(props.formulas["formula1"])) )} */}
-          
         </div>
-  
-       
+
         <div>To find: {props.shortTask}</div>
         <div>Answer format: {props.answerType} </div>
       </div>
