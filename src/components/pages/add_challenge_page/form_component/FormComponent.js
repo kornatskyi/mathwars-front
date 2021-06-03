@@ -6,22 +6,20 @@ import Editor from "../../../../../ckeditor5/build/ckeditor";
 import { Field, reduxForm } from "redux-form";
 import { required } from "../formValidation";
 
-
 function FormComponent(props) {
-  //Edditor initial state
-  const [editorData, setEditorData] = useState(
-    "<p>Write challenge body here...</p>"
-  );
 
   const { handleSubmit } = props;
 
   return (
     <form onSubmit={handleSubmit}>
       <Name />
-      <MyCKEditor editorData={editorData} setEditorData={setEditorData} />
+      <MyCKEditor
+        editorData={props.editorData}
+        setEditorData={props.setEditorData}
+      />
       <ShortTask />
       <Answer />
-      <Image />
+      <Image file={props.file} setFile={props.setFile} />
       <Topics />
       <Tags />
       <AuthorName />
@@ -109,6 +107,24 @@ function MyCKEditor({ editorData, setEditorData }) {
     </div>
   );
 }
+function Image({ file, setFile }) {
+  return (
+    <div className="image-input">
+      <label htmlFor="image" className="form-label">
+        Immage for the challenge
+      </label>
+      <input
+        className="file-attachment"
+        name="image"
+        type="file"
+        id="image"
+        onChange={(e) => {
+            setFile(e.target.files[0])
+        }}
+      />
+    </div>
+  );
+}
 
 function Name(props) {
   return (
@@ -123,8 +139,8 @@ function Name(props) {
         className="form-control"
         id="name"
         name="name"
-        validate={required}
-        warn={required}
+        // validate={required}
+        // warn={required}
       />
       <div id="emailHelp" className="form-text">
         We'll never share your email with anyone else.
@@ -174,25 +190,7 @@ function Answer(props) {
     </div>
   );
 }
-function Image(props) {
-  return (
-    <div className="image-input">
-      <label htmlFor="image" className="form-label">
-        Immage for the challenge
-      </label>
-      {/* <Field
-          component="input"
-          autoComplete="off"
-          type='file'
-          accept='.jpg, .png, .jpeg'
-          className="form-control"
-          id="image"
-          name="image"
-        /> */}
-      <input className="file-attachment" name="image" type="file" id="image" />
-    </div>
-  );
-}
+
 function Topics(props) {
   return (
     <div className="topics-input">
