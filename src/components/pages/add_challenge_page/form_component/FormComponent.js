@@ -4,10 +4,9 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import Editor from "../../../../../ckeditor5/build/ckeditor";
 
 import { Field, reduxForm } from "redux-form";
-import { required } from "../formValidation";
+import { required, maxLength30 } from "../formValidation";
 
 function FormComponent(props) {
-
   const { handleSubmit } = props;
 
   return (
@@ -42,8 +41,8 @@ export const renderField = ({
       <div>
         <input {...input} placeholder={label} type={type} />
         {touched &&
-          ((error && <span style={{ color: "red" }}>{error}</span>) ||
-            (warning && <span style={{ color: "blue" }}> {warning}</span>))}
+          ((error && <span className="error">{error}</span>) ||
+            (warning && <span className="warning"> {warning}</span>))}
       </div>
     </div>
   );
@@ -119,7 +118,7 @@ function Image({ file, setFile }) {
         type="file"
         id="image"
         onChange={(e) => {
-            setFile(e.target.files[0])
+          setFile(e.target.files[0]);
         }}
       />
     </div>
@@ -139,8 +138,8 @@ function Name(props) {
         className="form-control"
         id="name"
         name="name"
-        // validate={required}
-        // warn={required}
+        validate={[required, maxLength30]}
+        warn={required}
       />
       <div id="emailHelp" className="form-text">
         We'll never share your email with anyone else.
@@ -156,12 +155,14 @@ function ShortTask(props) {
         Task short form
       </label>
       <Field
-        component="input"
+        component={renderField}
         autoComplete="off"
         type="text"
         className="form-control"
         id="shortTask"
         name="shortTask"
+        validate={[required, maxLength30]}
+        warn={required}
       />
       <div id="taskHelp" className="form-text">
         Explain what to find in short form
@@ -177,12 +178,14 @@ function Answer(props) {
       </label>
 
       <Field
-        component="input"
+        component={renderField}
         autoComplete="off"
         type="text"
         className="form-control"
         id="answer"
         name="answer"
+        validate={[required]}
+        warn={required}
       />
       <div id="answerHelp" className="form-text">
         Write answer here
@@ -199,12 +202,14 @@ function Topics(props) {
       </label>
 
       <Field
-        component="input"
+        component={renderField}
         autoComplete="off"
         type="text"
         className="form-control"
         id="topics"
         name="topics"
+        validate={required}
+        warn={required}
       />
       <div id="topicsHelp" className="form-text">
         input topics
@@ -219,12 +224,14 @@ function Tags(props) {
         Tags
       </label>
       <Field
-        component="input"
+        component={renderField}
         autoComplete="off"
         type="text"
         className="form-control"
         id="tags"
         name="tags"
+        validate={required}
+        warn={required}
       />
       <div id="tagsHelp" className="form-text">
         Write tags separate by spases
@@ -239,12 +246,14 @@ function AuthorName(props) {
         Author Name
       </label>
       <Field
-        component="input"
+        component={renderField}
         autoComplete="off"
         type="text"
         className="form-control"
         id="authorName"
         name="authorName"
+        validate={required}
+        warn={required}
       />
       <div id="authorHelp" className="form-text">
         name
