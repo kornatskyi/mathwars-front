@@ -15,34 +15,34 @@ import { loadState } from "../../../redux/localStorage";
 
 export default function ChallengePage() {
   //load challenge data from local storage
-  const challenge = loadState().data;
+  const challengeData = loadState();
 
   return (
-    <div className="challenge-page-container">
+    <div className="challengeData-page-container">
       <div className="calc-container"></div>
       <div className="container  d-flex h-100 flex-column">
         <div className="row">
           <div className="col col-12 mt-2 mb-2 pl-2 pr-0">
             <ChallengePageHeader
-              date={challenge.date}
-              name={challenge.name}
-              difficulty={challenge.difficulty}
-              author={challenge.author}
-              topics={challenge.topics}
-              tags={challenge.tags}
+              date={challengeData.date}
+              name={challengeData.name}
+              difficulty={challengeData.difficulty}
+              author={challengeData.author}
+              topics={challengeData.topics}
+              tags={challengeData.tags}
             />
           </div>
         </div>
         <div className="row  flex-fill ">
           <div className="col col-12 col-md-5 pl-2 pr-0 pb-2">
             <ChallengePageChallengeDescription
-              loading={challenge.loading}
-              name={challenge.name}
-              body={challenge.body}
-              shortTask={challenge.shortTask}
-              images={challenge.images}
+              loading={challengeData.loading}
+              name={challengeData.name}
+              body={challengeData.body}
+              shortTask={challengeData.shortTask}
+              images={challengeData.images}
               host={CONST.API_HOST}
-              answerType={challenge.answerType}
+              answerType={challengeData.answerType}
             />
           </div>
           <div className="col col-12 col-md-7 d-flex h-100 flex-column pl-2  pr-0 pb-2">
@@ -58,7 +58,7 @@ export default function ChallengePage() {
             </div>
             <div className="row">
               <div className="col col-12">
-                <ChallengePageAnswer answer={challenge.answer} />
+                <ChallengePageAnswer answer={challengeData.answer} />
               </div>
             </div>
           </div>

@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { addChallenge } from "../../../../redux/challengeSlice";
 
 export default function ChallengeBlock(props) {
-  console.log(props);
+  console.log("🚀 ~ props", props)
+
 
   const dispatch = useDispatch();
 

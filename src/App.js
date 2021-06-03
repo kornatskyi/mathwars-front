@@ -17,7 +17,7 @@ import LeftNavbar from "./components/left_navbar/LeftNavbar.jsx";
 import AddChallenge from "./components/pages/add_challenge_page/AddChallenge.jsx";
 import HomePage from './components/pages/home_page/HomePage'
 
-
+import Test from './components/Test'
 
 
 const App = (props) => {
@@ -32,6 +32,7 @@ const App = (props) => {
             <BrowsePage />
           </Route>
           <Route path="/resourses">
+            <Test/>
           </Route>
           <Route path="/addchallenge">
             <AddChallenge />

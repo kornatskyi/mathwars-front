@@ -21,7 +21,8 @@ import { loadState, saveState } from "./redux/localStorage";
 const loadedState = loadState();
 store.dispatch(addChallenge(loadedState));
 store.subscribe(() => {
-  saveState(store.getState().challenge);
+  
+  saveState(store.getState().challenge.data);
 });
 
 ReactDOM.render(

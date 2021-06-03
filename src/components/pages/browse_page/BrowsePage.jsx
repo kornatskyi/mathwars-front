@@ -11,7 +11,6 @@ export default function ChallengePageBrowsePage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [challenges, setChallenges] = useState([]);
-  let data = [];
 
   useEffect(() => {
     fetch(CONST.API_HOST + "challenges", {

@@ -54,196 +54,219 @@ export default function AddChallenge() {
     fetch(hostName, {
       method: "POST",
       body: myFormData,
-    }).then(response => {
-      if(response.status !== 200) {
-        alert(response.statusText)
-      } 
-      return response.text()
-    }).then(text => {
-      alert(text)
-      location.reload()
-
-    });
+    })
+      .then((response) => {
+        if (response.status !== 200) {
+          alert(response.statusText);
+        }
+        return response.text();
+      })
+      .then((text) => {
+        alert(text);
+        location.reload();
+      });
   };
 
   return (
     <div className="add-challenge-component">
-      <div className="container">
-        <form className="form row">
-          <div className="col">
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Challenge name
-              </label>
-              <input
-                autoComplete="off"
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                aria-describedby="emailHelp"
-              />
-              <div id="emailHelp" className="form-text">
-                We'll never share your email with anyone else.
-              </div>
-            </div>
 
-            <div className="mb-3">
-              Body of a challenge
-              <div className="ckeditor">
-                <CKEditor
-                  editor={Editor}
-                  data={editorData}
-                  config={{
-                    plugins: [
-                      "Autoformat",
-                      "BlockQuote",
-                      "Bold",
-                      "CloudServices",
-                      "Essentials",
-                      "Heading",
-                      "Indent",
-                      "Italic",
-                      "Link",
-                      "List",
-                      "MathType",
-                      "Paragraph",
-                      "PasteFromOffice",
-                      "SpecialCharacters",
-                      "SpecialCharactersMathematical",
-                      "Table",
-                      "TableToolbar",
-                      "TextTransformation",
-                    ],
-                    toolbar: [
-                      "heading",
-                      "|",
-                      "bold",
-                      "italic",
-                      "link",
-                      "bulletedList",
-                      "numberedList",
-                      "|",
-                      "outdent",
-                      "indent",
-                      "|",
-                      "blockQuote",
-                      "insertTable",
-                      "undo",
-                      "redo",
-                      "specialCharacters",
-                      "MathType",
+        <Name />
+        <MyCKEditor editorData={editorData} setEditorData={setEditorData}/>
 
-                      // Chemestry input MathType plugin
-                      // "ChemType",
-                    ],
-                  }}
-                  onChange={(event, editor) => {
-                    const data = editor.getData();
-                    setEditorData(data);
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="shortTask" className="form-label">
-                Task short form
-              </label>
-              <input
-                autoComplete="off"
-                name="shortTask"
-                type="text"
-                className="form-control"
-                id="shortTask"
-              />
-              <div id="taskHelp" className="form-text">
-                Explain what to find in short form
-              </div>
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="answer" className="form-label">
-                Answer
-              </label>
-              <input
-                autoComplete="off"
-                type="text"
-                name="answer"
-                className="form-control"
-                id="answer"
-              />
-              <div id="answerHelp" className="form-text">
-                Write answer here
-              </div>
-            </div>
-          </div>
-
-          <div className="col-sm-5">
-            {" "}
-            <div className="mb-3">
-              <label htmlFor="image" className="form-label">
-                Immage for the challenge
-              </label>
-              <input
-                className="file-attachment"
-                name="image"
-                type="file"
-                id="image"
-              />
-            </div>
-            <div>
-              <label htmlFor="topics" className="form-label">
-                Topics
-              </label>
-              <input
-                autoComplete="off"
-                className="form-control"
-                id="topics"
-                placeholder="Type to search..."
-                name="topics"
-              />
-
-              <div id="topicsHelp" className="form-text">
-                input topics
-              </div>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="tags" className="form-label">
-                Tags
-              </label>
-              <input
-                autoComplete="off"
-                type="text"
-                name="tags"
-                className="form-control"
-                id="tags"
-              />
-              <div id="tagsHelp" className="form-text">
-                Write tags separate by spases
-              </div>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="authorName" className="form-label">
-                Author Name
-              </label>
-              <input
-                autoComplete="off"
-                type="text"
-                name="authorName"
-                className="form-control"
-                id="authorName"
-              />
-              <div id="authorHelp" className="form-text">
-                name
-              </div>
-            </div>
-          </div>
-        </form>
+        <ShortTask />
+        <Answer />
+        <Image />
+        <Topics />
+        <Tags />
         <button onClick={validateForm} className="btn btn-primary">
           Submit
         </button>
+    </div>
+  );
+}
+
+function Name(props) {
+  return (
+    <div className="name-input">
+      <label htmlFor="name" className="form-label">
+        Challenge name
+      </label>
+      <input
+        autoComplete="off"
+        type="text"
+        className="form-control"
+        id="name"
+        name="name"
+        aria-describedby="emailHelp"
+      />
+      <div id="emailHelp" className="form-text">
+        We'll never share your email with anyone else.
       </div>
+    </div>
+  );
+}
+
+function ShortTask(props) {
+  return (
+    <div className="short-task-input">
+      <label htmlFor="shortTask" className="form-label">
+        Task short form
+      </label>
+      <input
+        autoComplete="off"
+        name="shortTask"
+        type="text"
+        className="form-control"
+        id="shortTask"
+      />
+      <div id="taskHelp" className="form-text">
+        Explain what to find in short form
+      </div>
+    </div>
+  );
+}
+function Answer(props) {
+  return (
+    <div className="answer-input">
+      <label htmlFor="answer" className="form-label">
+        Answer
+      </label>
+      <input
+        autoComplete="off"
+        type="text"
+        name="answer"
+        className="form-control"
+        id="answer"
+      />
+      <div id="answerHelp" className="form-text">
+        Write answer here
+      </div>
+    </div>
+  );
+}
+function Image(props) {
+  return (
+    <div className="image-input">
+      <label htmlFor="image" className="form-label">
+        Immage for the challenge
+      </label>
+      <input className="file-attachment" name="image" type="file" id="image" />
+    </div>
+  );
+}
+function Topics(props) {
+  return (
+    <div className="topics-input">
+      <label htmlFor="topics" className="form-label">
+        Topics
+      </label>
+      <input
+        autoComplete="off"
+        className="form-control"
+        id="topics"
+        placeholder="Type to search..."
+        name="topics"
+      />
+      <div id="topicsHelp" className="form-text">
+        input topics
+      </div>
+    </div>
+  );
+}
+function Tags(props) {
+  return (
+    <div className="tags-input">
+      <label htmlFor="tags" className="form-label">
+        Tags
+      </label>
+      <input
+        autoComplete="off"
+        type="text"
+        name="tags"
+        className="form-control"
+        id="tags"
+      />
+      <div id="tagsHelp" className="form-text">
+        Write tags separate by spases
+      </div>
+    </div>
+  );
+}
+function AuthorName(props) {
+  return (
+    <div className="author-name-input">
+      <label htmlFor="authorName" className="form-label">
+        Author Name
+      </label>
+      <input
+        autoComplete="off"
+        type="text"
+        name="authorName"
+        className="form-control"
+        id="authorName"
+      />
+      <div id="authorHelp" className="form-text">
+        name
+      </div>
+    </div>
+  );
+}
+
+function MyCKEditor({editorData, setEditorData}) {
+  return (
+    <div className="ckeditor">
+      <CKEditor
+        editor={Editor}
+        data={editorData}
+        config={{
+          plugins: [
+            "Autoformat",
+            "BlockQuote",
+            "Bold",
+            "CloudServices",
+            "Essentials",
+            "Heading",
+            "Indent",
+            "Italic",
+            "Link",
+            "List",
+            "MathType",
+            "Paragraph",
+            "PasteFromOffice",
+            "SpecialCharacters",
+            "SpecialCharactersMathematical",
+            "Table",
+            "TableToolbar",
+            "TextTransformation",
+          ],
+          toolbar: [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "link",
+            "bulletedList",
+            "numberedList",
+            "|",
+            "outdent",
+            "indent",
+            "|",
+            "blockQuote",
+            "insertTable",
+            "undo",
+            "redo",
+            "specialCharacters",
+            "MathType",
+
+            // Chemestry input MathType plugin
+            // "ChemType",
+          ],
+        }}
+        onChange={(event, editor) => {
+          const data = editor.getData();
+          setEditorData(data);
+        }}
+      />
     </div>
   );
 }
