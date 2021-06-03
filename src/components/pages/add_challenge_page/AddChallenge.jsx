@@ -13,11 +13,38 @@ import Editor from "../../../../ckeditor5/build/ckeditor";
 
 const hostName = "http://localhost:3000/newchallenge";
 
-export default function AddChallenge() {
-  const [editorData, setEditorData] = useState(
-    "<p>Write challenge body here...</p>"
-  );
+import { Field, reduxForm } from "redux-form";
 
+// import {required} from './formValidation'
+
+const required = (value) => (value ? undefined : "Required");
+const maxLength = (max) => (value) =>
+  value && value.length > max ? `Must be ${max} characters or less` : undefined;
+const maxLength15 = maxLength(15);
+const number = (value) =>
+  value && isNaN(Number(value)) ? "Must be a number" : undefined;
+const minValue = (min) => (value) =>
+  value && value < min ? `Must be at least ${min}` : undefined;
+const minValue18 = minValue(18);
+const email = (value) =>
+  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
+    ? "Invalid email address"
+    : undefined;
+const tooOld = (value) =>
+  value && value > 65 ? "You might be too old for this" : undefined;
+const aol = (value) =>
+  value && /.+@aol\.com/.test(value)
+    ? "Really? You still use AOL for your email?"
+    : undefined;
+
+//form validator
+
+function action(values) {
+  console.log(values);
+}
+
+//redux add properties to props, not only that I added in parent component
+function AddChallenge(props) {
   const validateForm = () => {
     const name = document.getElementById("name");
     const shortTask = document.getElementById("shortTask");
@@ -33,7 +60,6 @@ export default function AddChallenge() {
     myFormData.append("body", editorData);
     myFormData.append("shortTask", shortTask.value);
     myFormData.append("answer", answer.value);
-
     myFormData.append("topics", topics.value);
     myFormData.append("tags", tags.value);
     myFormData.append("authorName", authorName.value);
@@ -67,21 +93,61 @@ export default function AddChallenge() {
       });
   };
 
+  /*this method will be execute inside Redux's handleSubmit method if 
+  values pass all validation steps */
+  const submit = (values) => {
+    // print the form values to the console
+    console.log(values);
+    alert();
+  };
+
+  console.log(props);
+
   return (
     <div className="add-challenge-component">
-
-        <Name />
-        <MyCKEditor editorData={editorData} setEditorData={setEditorData}/>
-
-        <ShortTask />
-        <Answer />
-        <Image />
-        <Topics />
-        <Tags />
-        <button onClick={validateForm} className="btn btn-primary">
-          Submit
-        </button>
+      <FormComponent onSubmit={submit} />
     </div>
+  );
+}
+
+const renderField = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning },
+}) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={label} type={type} />
+      {touched &&
+        ((error && <span style={{ color: "red" }}>{error}</span>) ||
+          (warning && <span style={{ color: "red" }}> {warning}</span>))}
+    </div>
+  </div>
+);
+
+function FormComponent(props) {
+  const [editorData, setEditorData] = useState(
+    "<p>Write challenge body here...</p>"
+  );
+
+  const { handleSubmit } = props;
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <Name />
+      <MyCKEditor editorData={editorData} setEditorData={setEditorData} />
+      <ShortTask />
+      <Answer />
+      <Image />
+      <Topics />
+      <Tags />
+      <AuthorName />
+      <button type="submit" className="btn btn-primary">
+        Submit
+      </button>
+    </form>
   );
 }
 
@@ -91,13 +157,15 @@ function Name(props) {
       <label htmlFor="name" className="form-label">
         Challenge name
       </label>
-      <input
+      <Field
+        component={renderField}
         autoComplete="off"
         type="text"
         className="form-control"
         id="name"
         name="name"
-        aria-describedby="emailHelp"
+        validate={required}
+        warn={tooOld}
       />
       <div id="emailHelp" className="form-text">
         We'll never share your email with anyone else.
@@ -112,12 +180,13 @@ function ShortTask(props) {
       <label htmlFor="shortTask" className="form-label">
         Task short form
       </label>
-      <input
+      <Field
+        component="input"
         autoComplete="off"
-        name="shortTask"
         type="text"
         className="form-control"
         id="shortTask"
+        name="shortTask"
       />
       <div id="taskHelp" className="form-text">
         Explain what to find in short form
@@ -131,12 +200,14 @@ function Answer(props) {
       <label htmlFor="answer" className="form-label">
         Answer
       </label>
-      <input
+
+      <Field
+        component="input"
         autoComplete="off"
         type="text"
-        name="answer"
         className="form-control"
         id="answer"
+        name="answer"
       />
       <div id="answerHelp" className="form-text">
         Write answer here
@@ -150,6 +221,15 @@ function Image(props) {
       <label htmlFor="image" className="form-label">
         Immage for the challenge
       </label>
+      {/* <Field
+        component="input"
+        autoComplete="off"
+        type='file'
+        accept='.jpg, .png, .jpeg'
+        className="form-control"
+        id="image"
+        name="image"
+      /> */}
       <input className="file-attachment" name="image" type="file" id="image" />
     </div>
   );
@@ -160,11 +240,13 @@ function Topics(props) {
       <label htmlFor="topics" className="form-label">
         Topics
       </label>
-      <input
+
+      <Field
+        component="input"
         autoComplete="off"
+        type="text"
         className="form-control"
         id="topics"
-        placeholder="Type to search..."
         name="topics"
       />
       <div id="topicsHelp" className="form-text">
@@ -179,12 +261,13 @@ function Tags(props) {
       <label htmlFor="tags" className="form-label">
         Tags
       </label>
-      <input
+      <Field
+        component="input"
         autoComplete="off"
         type="text"
-        name="tags"
         className="form-control"
         id="tags"
+        name="tags"
       />
       <div id="tagsHelp" className="form-text">
         Write tags separate by spases
@@ -198,12 +281,13 @@ function AuthorName(props) {
       <label htmlFor="authorName" className="form-label">
         Author Name
       </label>
-      <input
+      <Field
+        component="input"
         autoComplete="off"
         type="text"
-        name="authorName"
         className="form-control"
         id="authorName"
+        name="authorName"
       />
       <div id="authorHelp" className="form-text">
         name
@@ -212,7 +296,7 @@ function AuthorName(props) {
   );
 }
 
-function MyCKEditor({editorData, setEditorData}) {
+function MyCKEditor({ editorData, setEditorData }) {
   return (
     <div className="ckeditor">
       <CKEditor
@@ -270,3 +354,10 @@ function MyCKEditor({editorData, setEditorData}) {
     </div>
   );
 }
+
+FormComponent = reduxForm({
+  // a unique name for the form
+  form: "contact",
+})(FormComponent);
+
+export default AddChallenge;
