@@ -3,9 +3,75 @@
 
 
 .add-challenge-component {
-    .ckeditor {
-        color: black;
-        background-color: white;
-    }
+    margin-bottom: 100px;
 
+    form {
+        display       : flex;
+        flex-direction: column;
+
+        .form-element {
+            margin: 10px 0;
+
+            &>div>div>input {
+                background-color: $light;
+                width           : 100%;
+                min-height      : 50px;
+                padding         : 0 0 0 10px;
+
+            }
+
+            &.ckeditor>.ckeditor-container {
+                color           : black;
+                background-color: $light;
+                height          : 300px;
+                overflow        : scroll;
+                overflow-x      : hidden;
+            }
+
+            &.image-input {
+                display       : flex;
+                flex-direction: column;
+
+                label {
+                    margin          : 0;
+                    text-align      : center;
+                    width           : 50%;
+                    padding         : 5px 10px 5px 10px;
+                    background-color: $yellow;
+                    cursor          : pointer;
+
+                    &:hover {
+                        background-color: darken($yellow, 10%);
+                    }
+                }
+
+                input {
+                    display: none;
+                }
+
+
+            }
+        }
+
+
+        .error {
+            color: $warning;
+        }
+
+        .submit-bnt {
+            border          : 2px solid $yellow;
+            background-color: transparent;
+            color           : $yellow;
+            width           : 100%;
+            max-width       : 300px;
+            height          : 40px;
+            align-self      : center;
+
+            &:hover {
+                background-color: $yellow;
+                color           : $light;
+            }
+        }
+
+    }
 }

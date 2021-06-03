@@ -23,9 +23,9 @@ a {
 }
 
 .main-container {
-    padding: 0px 0 0 70px;
+    padding: 0px 0 0 0px;
     
-    @include lg {
+    @include md {
         padding: 0px 70px;
     }
 }

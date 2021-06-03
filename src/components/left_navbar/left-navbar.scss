@@ -12,9 +12,12 @@
     transition-duration       : .5s;
     transition-property       : display, width;
     transition-timing-function: ease-in-out;
-    width                     : 70px;
+    width                     : 1px;
     float: left;
     left: 0;
+    @include md {
+        width: 70px;
+    }
 
     ul.navbar {
         padding: 0;

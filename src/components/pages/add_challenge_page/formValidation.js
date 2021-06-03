@@ -5,7 +5,7 @@ value && value.length > max ? `Must be ${max} characters or less` : undefined;
 
 //Challenge name
 export const required = value =>
-  value || value === 0 ? undefined : "Required";
+  value || value === 0 ? undefined : "This field is required";
   export const maxLength30 = maxLength(30);
 
 

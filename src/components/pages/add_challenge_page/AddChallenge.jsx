@@ -18,7 +18,7 @@ function AddChallenge(props) {
   const [editorData, setEditorData] = useState(
     "<p>Write challenge body here...</p>"
   );
-  const [file, setFile] = useState("no_file");
+  const [file, setFile] = useState("NO file");
 
   /*this method will be execute inside Redux's handleSubmit method if 
   values pass all validation steps */
@@ -53,7 +53,7 @@ function AddChallenge(props) {
       });
   };
   return (
-    <div className="add-challenge-component">
+    <div className="add-challenge-component container">
       <FormComponent
         onSubmit={submit}
         editorData={editorData}
