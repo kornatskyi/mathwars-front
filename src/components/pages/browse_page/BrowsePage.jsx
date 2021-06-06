@@ -12,6 +12,8 @@ export default function ChallengePageBrowsePage() {
 
   const [challenges, setChallenges] = useState([]);
 
+
+//fetching challenges from db 
   useEffect(() => {
     fetch(CONST.API_HOST + "challenges", {
       method: "POST",
@@ -51,10 +53,10 @@ export default function ChallengePageBrowsePage() {
       <div>
         <div className="container">
           <div className="row">
-            <div className="col col-md-4">
+            <div className="col col-lg-4">
               <BrowsePanel />
             </div>
-            <div className="col col-md-8">
+            <div className="col col-lg-8">
               <h1>Data loading</h1>
             </div>
           </div>
@@ -66,10 +68,10 @@ export default function ChallengePageBrowsePage() {
       <div>
         <div className="container">
           <div className="row">
-            <div className="col col-md-4">
+            <div className="col col-lg-4">
               <BrowsePanel />
             </div>
-            <div className="col col-md-8">{challenges}</div>
+            <div className="col col-lg-8">{challenges}</div>
           </div>
         </div>
       </div>

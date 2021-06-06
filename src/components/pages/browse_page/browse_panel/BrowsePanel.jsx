@@ -1,7 +1,10 @@
 import React from "react";
 import './browse-panel.scss'
 
-export default function BrowsePanel() {
+export default function BrowsePanel(props) {
+
+
+
   return (
     <div className="browse-container">
       <form className="browse-form">
