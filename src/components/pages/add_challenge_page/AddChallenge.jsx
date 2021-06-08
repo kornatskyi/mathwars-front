@@ -54,6 +54,7 @@ function AddChallenge(props) {
   };
   return (
     <div className="add-challenge-component container">
+      <h3 className="page-description">On this page you can create a new challenges and send them to database</h3>
       <FormComponent
         onSubmit={submit}
         editorData={editorData}

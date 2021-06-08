@@ -4,7 +4,11 @@
 
 .add-challenge-component {
     margin-bottom: 100px;
-
+.page-description {
+    padding-top: 20px;
+    color:$yellow;
+    text-align: center;
+}
     form {
         display       : flex;
         flex-direction: column;
