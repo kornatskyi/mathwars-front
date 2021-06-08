@@ -8,13 +8,7 @@
     display       : flex;
     flex-direction: column;
 
-    .formula {
-        font-family: $math-font;
-        margin          : 10px 0;
-        padding: 5px;
-        background-color: black;
-        border-radius: .375rem;
-        font-size: .875em;
-        line-height: 1.7142857;
+    .to-find {
+        margin-top: auto;
     }
 }

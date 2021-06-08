@@ -20,8 +20,7 @@ export default function ChallengePageChallengeDescription(props) {
         <MathJax math={props.body} />
         <img src={props.host + props.images} alt="" />
 
-        <div>To find: {props.shortTask}</div>
-        <div>Answer format: {props.answerType} </div>
+        <div className="to-find">To find: {props.shortTask}</div>
       </div>
     );
   }
