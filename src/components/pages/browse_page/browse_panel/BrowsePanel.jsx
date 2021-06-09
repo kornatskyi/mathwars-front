@@ -5,17 +5,9 @@ import { API_URL } from "../../../../utils/constants";
 
 console.log(API_URL);
 export default function BrowsePanel(props) {
-  
   const hendleForm = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    formData.append("name", "John");
-    formData.append("password", "John123");
-
-    for (let p of formData) {
-      console.log(p);
-    }
-
     axios({
       method: "post",
       url: API_URL + "test",
@@ -45,7 +37,7 @@ export default function BrowsePanel(props) {
         </label>
         <label htmlFor="sortBy">
           <p>Sort by:</p>
-          <select id="sortBy">
+          <select name="sortBy" id="sortBy">
             <option value="new">New firs</option>
             <option value="rating">Rating</option>
             <option value="popularity">Popularity</option>
@@ -53,7 +45,7 @@ export default function BrowsePanel(props) {
         </label>
         <label htmlFor="topics">
           <p>Topic:</p>
-          <select id="topics">
+          <select name="topics" id="topics">
             <option value="calculus">Calculus</option>
             <option value="algebra">Algebra</option>
             <option value="geometry">Gerometry</option>
@@ -62,27 +54,27 @@ export default function BrowsePanel(props) {
         </label>
         <div className="dificulty-lvl-container">
           <label htmlFor="lvl1">
-            <input id="lvl1" type="checkbox" />
+            <input id="lvl1" name="lvl1" type="checkbox" />
             lvl1
           </label>
           <label htmlFor="lvl2">
-            <input id="lvl2" type="checkbox" />
+            <input id="lvl2" name="lvl2" type="checkbox" />
             lvl2
           </label>
           <label htmlFor="lvl3">
-            <input id="lvl3" type="checkbox" />
+            <input id="lvl3" name="lvl3" type="checkbox" />
             lvl3
           </label>
           <label htmlFor="lvl4">
-            <input id="lvl4" type="checkbox" />
+            <input id="lvl4" name="lvl4" type="checkbox" />
             lvl4
           </label>
           <label htmlFor="lvl5">
-            <input id="lvl5" type="checkbox" />
+            <input id="lvl5" name="lvl5" type="checkbox" />
             lvl5
           </label>
           <label htmlFor="lvl6">
-            <input id="lvl6" type="checkbox" />
+            <input id="lvl6" name="lvl6" type="checkbox" />
             lvl6
           </label>
         </div>
