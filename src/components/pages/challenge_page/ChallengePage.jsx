@@ -6,7 +6,7 @@ import ChallengePageHeader from "./challenge_header/ChallengePageHeader.jsx";
 import ChallengePageToolsBar from "./challenge_tool_bar/ChallengePageToolsBar.jsx";
 import "./challenge-page.scss";
 
-import * as CONST from "../../../settings/constants";
+import * as CONST from "../../../utils/constants";
 
 import { useSelector, useDispatch } from "react-redux";
 // import { addChallenge } from "../../../../redux/challengeSlice";
@@ -41,7 +41,7 @@ export default function ChallengePage() {
               body={challengeData.body}
               shortTask={challengeData.shortTask}
               images={challengeData.images}
-              host={CONST.API_HOST}
+              host={CONST.API_URL}
               answerType={challengeData.answerType}
             />
           </div>

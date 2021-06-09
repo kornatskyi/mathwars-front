@@ -5,7 +5,7 @@ import BrowsePanel from "./browse_panel/BrowsePanel.jsx";
 // import { useSelector, useDispatch } from 'react-redux'
 // import { addChallenge } from '../../../redux/challengeSlice'
 
-import * as CONST from "../../../settings/constants";
+import * as CONST from "../../../utils/constants";
 
 export default function ChallengePageBrowsePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,7 @@ export default function ChallengePageBrowsePage() {
 
 //fetching challenges from db 
   useEffect(() => {
-    fetch(CONST.API_HOST + "challenges", {
+    fetch(CONST.API_URL + "challenges", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,6 @@ export default function ChallengePageBrowsePage() {
             );
           })
         );
-        console.log(challenges);
         setIsLoading(false);
       });
   }, []);
