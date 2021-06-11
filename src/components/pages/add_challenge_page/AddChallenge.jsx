@@ -24,14 +24,21 @@ function AddChallenge(props) {
   values pass all validation steps */
   const submit = (values) => {
     let formData = new FormData();
+    console.log(values);
 
     const allData = { ...values, body: editorData, file: file };
 
     for (let key in allData) {
+       
       if (key === "file" && allData[key] !== "no_file") {
         formData.append(key, allData[key], allData[key].name);
       } else {
-        formData.append(key, allData[key]);
+        if(!allData[key]) {
+          allData[key] = ""
+        } else {
+
+          formData.append(key, allData[key]);
+        }
       }
     }
 

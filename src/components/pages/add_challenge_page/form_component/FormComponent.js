@@ -8,18 +8,20 @@ import { required, maxLength30 } from "../formValidation";
 
 function FormComponent(props) {
   const { handleSubmit } = props;
+  console.log(props);
 
   return (
-    <form  autoComplete="off" onSubmit={handleSubmit}>
+    <form autoComplete="off" onSubmit={handleSubmit}>
       <Name />
       <MyCKEditor
         editorData={props.editorData}
         setEditorData={props.setEditorData}
       />
-      <ShortTask />
+      {/* <ShortTask /> */}
       <Answer />
+      <Lvl/>
       <Topics />
-      <Tags />
+      {/* <Tags /> */}
       <AuthorName />
       <Image file={props.file} setFile={props.setFile} />
       <button type="submit" className="submit-bnt">
@@ -48,6 +50,8 @@ export const renderField = ({
     </div>
   );
 };
+
+
 
 function MyCKEditor({ editorData, setEditorData }) {
   return (
@@ -149,24 +153,24 @@ function Name(props) {
   );
 }
 
-function ShortTask(props) {
-  return (
-    <div className="short-task-input form-element">
-      <Field
-        component={renderField}
-        autoComplete="off"
-        type="text"
-        className="form-control"
-        id="shortTask"
-        name="shortTask"
-        label="Short Task"
-        placeholder="Short task max 30 char.."
-        validate={[required, maxLength30]}
-        warn={required}
-      />
-    </div>
-  );
-}
+// function ShortTask(props) {
+//   return (
+//     <div className="short-task-input form-element">
+//       <Field
+//         component={renderField}
+//         autoComplete="off"
+//         type="text"
+//         className="form-control"
+//         id="shortTask"
+//         name="shortTask"
+//         label="Short Task"
+//         placeholder="Short task max 30 char.."
+//         validate={[required, maxLength30]}
+//         warn={required}
+//       />
+//     </div>
+//   );
+// }
 function Answer(props) {
   return (
     <div className="answer-input form-element">
@@ -186,42 +190,115 @@ function Answer(props) {
   );
 }
 
+export const renderSelectField = ({
+  label,
+  input,
+  placeholder,
+  meta: { touched, error, warning },
+}) => {
+  return (
+    <div>
+      <label>{label}</label>
+      <div>
+
+        <select {...input} placeholder={placeholder}>
+          <option default value=' '>Default value</option>
+          <option value="calculus">Calculus</option>
+          <option value="algebra">Algebra</option>
+          <option value="geometry">Geometry</option>
+          <option value="arithmetics">Arithmetics</option>
+        </select>
+
+        {touched &&
+          ((error && <span className="error">{error}</span>) ||
+            (warning && <span className="warning"> {warning}</span>))}
+      </div>
+    </div>
+  );
+};
+
 function Topics(props) {
   return (
     <div className="topics-input form-element">
       <Field
-        component={renderField}
+        component={renderSelectField}
         autoComplete="off"
-        type="text"
         className="form-control"
         id="topics"
         name="topics"
-        label="Topics touched"
-        placeholder="Input topics devided with space .."
-        validate={required}
-        warn={required}
+        label="Topic"
+        placeholder="Input math topic .."
+      // validate={required}
+      // warn={required}
       />
     </div>
   );
 }
-function Tags(props) {
+
+export const renderLvlField = ({
+  label,
+  input,
+  placeholder,
+  meta: { touched, error, warning },
+}) => {
   return (
-    <div className="tags-input form-element">
+    <div>
+      <label>{label}</label>
+      <div>
+
+        <select {...input} placeholder={placeholder}>
+          <option default value=' '>Select dificuly</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+
+        {touched &&
+          ((error && <span className="error">{error}</span>) ||
+            (warning && <span className="warning"> {warning}</span>))}
+      </div>
+    </div>
+  );
+};
+
+function Lvl(props) {
+  return (
+    <div className="topics-input form-element">
       <Field
-        component={renderField}
+        component={renderLvlField}
         autoComplete="off"
-        type="text"
         className="form-control"
-        id="tags"
-        name="tags"
-        label="Tags"
-        placeholder="Input tags devided with space .."
-        validate={required}
-        warn={required}
+        id="lvl"
+        name="lvl"
+        label="Lvl"
+        placeholder="Choose dificulty lvl from 1 to 6"
+      // validate={required}
+      // warn={required}
       />
     </div>
   );
 }
+// function Tags(props) {
+//   return (
+//     <div className="tags-input form-element">
+//       <Field
+//         component={renderField}
+//         autoComplete="off"
+//         type="text"
+//         className="form-control"
+//         id="tags"
+//         name="tags"
+//         label="Tags"
+//         placeholder="Input tags devided with space .."
+//         validate={required}
+//         warn={required}
+//       />
+//     </div>
+//   );
+// }
 function AuthorName(props) {
   return (
     <div className="author-name-input form-element">

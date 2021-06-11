@@ -1,15 +1,15 @@
 export const maxLength = (max) => (value) =>
-value && value.length > max ? `Must be ${max} characters or less` : undefined;
+  value && value.length > max ? `Must be ${max} characters or less` : undefined;
 
 
 
 //Challenge name
 export const required = value =>
   value || value === 0 ? undefined : "This field is required";
-  export const maxLength30 = maxLength(30);
+export const maxLength30 = maxLength(30);
 
 
-  
+
 export const number = (value) =>
   value && isNaN(Number(value)) ? "Must be a number" : undefined;
 export const minValue = (min) => (value) =>

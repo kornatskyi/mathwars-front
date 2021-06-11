@@ -16,11 +16,11 @@
         .form-element {
             margin: 10px 0;
 
-            &>div>div>input {
+            &>div>div>input, select {
                 background-color: $light;
                 width           : 100%;
                 min-height      : 50px;
-                padding         : 0 0 0 10px;
+                padding         : 0 0px 0 10px;
 
             }
 
@@ -49,7 +49,7 @@
                     }
                 }
 
-                input {
+                input, select {
                     display: none;
                 }
 
