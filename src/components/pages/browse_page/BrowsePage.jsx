@@ -12,6 +12,8 @@ export default function ChallengePageBrowsePage() {
 
   const [challenges, setChallenges] = useState([]);
 
+  const [filter, setFilter] = useState({})
+
 
 //fetching challenges from db 
   useEffect(() => {
@@ -21,7 +23,7 @@ export default function ChallengePageBrowsePage() {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }, // *GET, POST, PUT, DELETE, etc.
-      body: "", // body data type must match "Content-Type" header
+      body: JSON.stringify(filter), // body data type must match "Content-Type" header
     })
       .then((res) => res.text())
       .then((text) => {
@@ -45,7 +47,7 @@ export default function ChallengePageBrowsePage() {
         );
         setIsLoading(false);
       });
-  }, []);
+  }, [filter]);
 
   if (isLoading) {
     return (
@@ -53,7 +55,7 @@ export default function ChallengePageBrowsePage() {
         <div className="container">
           <div className="row">
             <div className="col col-lg-4">
-              <BrowsePanel />
+              <BrowsePanel setFilter={setFilter} />
             </div>
             <div className="col col-lg-8">
               <h1>Data loading</h1>
@@ -68,7 +70,7 @@ export default function ChallengePageBrowsePage() {
         <div className="container">
           <div className="row">
             <div className="col col-lg-4">
-              <BrowsePanel />
+              <BrowsePanel setFilter={setFilter} setIsLoading={setIsLoading} />
             </div>
             <div className="col col-lg-8">{challenges}</div>
           </div>

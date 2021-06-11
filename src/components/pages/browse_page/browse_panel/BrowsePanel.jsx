@@ -1,18 +1,16 @@
 import React from "react";
 import "./browse-panel.scss";
-import axios from "axios";
-import { API_URL } from "../../../../utils/constants";
 
-console.log(API_URL);
-export default function BrowsePanel(props) {
+export default function BrowsePanel({setFilter, setIsLoading}) {
+  
   const hendleForm = (e) => {
     e.preventDefault();
+    console.log();
     const formData = new FormData(e.target);
-    axios({
-      method: "post",
-      url: API_URL + "test",
-      data: formData,
-    });
+    setIsLoading(true)
+    setFilter({
+      name: e.target[0].value
+    })
   };
 
   return (
