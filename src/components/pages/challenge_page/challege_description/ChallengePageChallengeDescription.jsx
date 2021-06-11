@@ -27,9 +27,7 @@ export default function ChallengePageChallengeDescription(props) {
         <h2>Task</h2>
         <MathJax math={props.body} />
         {/* <MathJax math={mathMl} /> */}
-        <img src={props.host + props.images} alt="" />
-
-        <div className="to-find">To find: {props.shortTask}</div>
+        <img src={props.host + props.fileName} alt="" />
       </div>
     );
   }

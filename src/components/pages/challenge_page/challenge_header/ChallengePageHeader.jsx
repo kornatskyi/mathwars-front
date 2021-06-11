@@ -4,15 +4,13 @@ import topicIcon from "../../../../assets/images/challenge_data/square-root-alt-
 import "./challenge-page-header.scss";
 
 export default function ChallengePageHeader(props) {
-
-  console.log(props.tags);
   console.log(props.topics);
   return (
     <div className="challenge-page-header-constainer">
       <div className="left-header">
         <div className="main-info">
           <div className="lvl">
-            <p>{props.difficulty}</p>
+            <p>{props.lvl}</p>
           </div>
           <div className="name">
             <h4>{props.name}</h4>
@@ -23,28 +21,19 @@ export default function ChallengePageHeader(props) {
           <div className="author-container">
             <img src={authorIcon} alt="challenge author" />
             <span>
-              <a href="">{props.author}</a>
+              <a href="">{props.authorName}</a>
             </span>
-          </div>
-          <div className="tags">
-            {props.tags.split(" ").map((tag, i) => (
-              <div key={i}>
-                <a href="">{tag}</a>
-              </div>
-            ))}
           </div>
         </div>
       </div>
 
       <div className="right-header">
-        {props.topics.split(" ").map((topicName, i) =>  (
-            <div className="topic-element" key={i}>
+        {props.topics.split(" ").map((topicName, i) => (
+          <div className="topic-element" key={i}>
             <img src={topicIcon} alt="math topic" />
             <span>{topicName}</span>
           </div>
         ))}
-      
-
       </div>
     </div>
   );

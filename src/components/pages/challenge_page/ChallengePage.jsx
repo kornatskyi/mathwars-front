@@ -26,10 +26,9 @@ export default function ChallengePage() {
             <ChallengePageHeader
               date={challengeData.date}
               name={challengeData.name}
-              difficulty={challengeData.difficulty}
-              author={challengeData.author}
+              lvl={challengeData.lvl}
+              authorName={challengeData.authorName}
               topics={challengeData.topics}
-              tags={challengeData.tags}
             />
           </div>
         </div>

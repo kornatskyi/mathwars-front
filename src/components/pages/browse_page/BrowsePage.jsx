@@ -29,17 +29,16 @@ export default function ChallengePageBrowsePage() {
       .then((text) => {
         setChallenges(
           JSON.parse(text).map((challenge, i) => {
+            console.log(challenge);
             return (
               <Challenge
                 key={i}
                 body={challenge.body}
-                author={challenge.author}
-                difficulty={challenge.difficulty}
+                authorName={challenge.authorName}
+                lvl={challenge.lvl}
                 name={challenge.name}
-                shortTask={challenge.shortTask}
-                tags={challenge.tags}
                 topics={challenge.topics}
-                images={challenge.images}
+                fileName={challenge.fileName}
                 answer={challenge.answer}
               />
             );

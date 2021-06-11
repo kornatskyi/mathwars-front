@@ -9,17 +9,16 @@ import { addChallenge } from "../../../../redux/challengeSlice";
 import MathJax from "react-mathjax-preview";
 
 export default function ChallengeBlock(props) {
-
   const dispatch = useDispatch();
 
   return (
     <div className="challenge-container">
       <div className="left-column">
         <div className="header">
-          <div className="lvl">{props.difficulty}</div>
+          <div className="lvl">{props.lvl}</div>
         </div>
         <div className="meta-data">
-          <span>Author: {props.author}</span>
+          <span>Author: {props.authorName}</span>
           <ul>
             Topics:
             {props.topics.split(" ").map((topic, i) => (
@@ -36,7 +35,6 @@ export default function ChallengeBlock(props) {
           {/* <p dangerouslySetInnerHTML={{ __html: props.body }}></p> */}
           <MathJax math={props.body} />
         </div>
-        
 
         <Link to="/challenge">
           <button
