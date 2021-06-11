@@ -1,51 +1,67 @@
 import React, { useState } from "react";
 import "./challenge-page-answer.scss";
+import { Link } from "react-router-dom";
+
 
 export default function ChallengePageAnswer(props) {
   const [inputValue, setInputValue] = useState("");
   // const host = props.host;
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState('default');
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
 
-  const checkAnswer = (answer, trueAnswer) =>
-    answer === trueAnswer ? true : false;
 
-  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
+  const checkAnswer = (answer, trueAnswer) => {
+    if (answer === trueAnswer) {
+      return true;
+    } else {
+      setTimeout(() => {
+        setIsCorrectAnswer('default')
+      }, 1000)
+      return false;
+    }
+  };
 
-  // const sendChallengeAnswerToTheServer = (challengeId, value, host) => {
-  //   const options = {
-  //     method: "POST", // *GET, POST, PUT, DELETE, etc.
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //       // 'Content-Type': 'application/x-www-form-urlencoded',
-  //     },
-  //     body: JSON.stringify({
-  //       id: challengeId,
-  //       answer: value,
-  //     }),
-  //   };
-
-  //   fetch(host + "answer", options).then((response) => {
-  //     return response.text().then((text) => {
-  //       console.log(text);
-  //       setIsCorrectAnswer(() => {
-  //         return text === "true";
-  //       });
-  //       console.log(isCorrectAnswer);
-  //     });
-  //   });
-  // };
-
-  if (isCorrectAnswer) {
+  
+  if (isCorrectAnswer === true) {
     return (
       <div className="challenge-page-answer-constainer">
         <div className="correct">
           <span> Your answer is correct.</span>
-          <a className="btn btn-primary">Go next</a>
-        </div>
+          <Link to="/browse" className="btn">
+                Go next
+            </Link>
+        </div> 
       </div>
+    );
+  } else if (isCorrectAnswer === false) {
+    return (
+      <div className="challenge-page-answer-constainer">
+      <form className="wrong">
+        <label htmlFor="answer">
+          <input
+            id="answer"
+            autoComplete="off"
+            className="form-control"
+            type="text"
+            placeholder="Wrong answer"
+            value=""
+            onChange={handleChange}
+          />
+        </label>
+        <button
+          className="btn"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsCorrectAnswer(checkAnswer(inputValue, props.answer));
+          }}
+        >
+          Submit
+        </button>
+      </form>
+    </div>
     );
   } else {
     return (
@@ -62,7 +78,7 @@ export default function ChallengePageAnswer(props) {
             />
           </label>
           <button
-            className="btn btn-primary"
+            className="btn"
             onClick={(e) => {
               e.preventDefault();
               setIsCorrectAnswer(checkAnswer(inputValue, props.answer));
