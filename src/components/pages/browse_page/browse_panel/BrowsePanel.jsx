@@ -5,12 +5,15 @@ export default function BrowsePanel({setFilter, setIsLoading}) {
   
   const hendleForm = (e) => {
     e.preventDefault();
-    console.log();
+    let filter = {}
     const formData = new FormData(e.target);
     setIsLoading(true)
-    setFilter({
-      name: e.target[0].value
-    })
+    if(e.target['keyword'].value) filter.name = e.target['keyword'].value;
+    if(e.target['sortBy'].value) filter.sortBy = e.target['sortBy'].value;
+    if(e.target['topic'].value) filter.topic = e.target['topic'].value;
+    if(e.target['lvl'].value) filter.lvl = e.target['lvl'].value;
+
+    setFilter(filter)
   };
 
   return (
@@ -41,9 +44,9 @@ export default function BrowsePanel({setFilter, setIsLoading}) {
             <option value="popularity">Popularity</option>
           </select>
         </label>
-        <label htmlFor="topics">
-          <p>Topic:</p>
-          <select name="topics" id="topics">
+        <label htmlFor="topic">
+          <p>Topi:</p>
+          <select name="topic" id="topic">
             <option value="calculus">Calculus</option>
             <option value="algebra">Algebra</option>
             <option value="geometry">Gerometry</option>
@@ -52,27 +55,27 @@ export default function BrowsePanel({setFilter, setIsLoading}) {
         </label>
         <div className="dificulty-lvl-container">
           <label htmlFor="lvl1">
-            <input id="lvl1" name="lvl1" type="checkbox" />
+            <input id="lvl1" name="lvl" type="radio" value="1" />
             lvl1
           </label>
           <label htmlFor="lvl2">
-            <input id="lvl2" name="lvl2" type="checkbox" />
+            <input id="lvl2" name="lvl" type="radio" value="2" />
             lvl2
           </label>
           <label htmlFor="lvl3">
-            <input id="lvl3" name="lvl3" type="checkbox" />
+            <input id="lvl3" name="lvl" type="radio" value="3" />
             lvl3
           </label>
           <label htmlFor="lvl4">
-            <input id="lvl4" name="lvl4" type="checkbox" />
+            <input id="lvl4" name="lvl" type="radio" value="4" />
             lvl4
           </label>
           <label htmlFor="lvl5">
-            <input id="lvl5" name="lvl5" type="checkbox" />
+            <input id="lvl5" name="lvl" type="radio" value="5" />
             lvl5
           </label>
           <label htmlFor="lvl6">
-            <input id="lvl6" name="lvl6" type="checkbox" />
+            <input id="lvl6" name="lvl" type="radio" value="6" />
             lvl6
           </label>
         </div>
