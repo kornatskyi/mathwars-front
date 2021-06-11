@@ -6,13 +6,11 @@ export default function BrowsePanel({setFilter, setIsLoading}) {
   const hendleForm = (e) => {
     e.preventDefault();
     let filter = {}
-    const formData = new FormData(e.target);
     setIsLoading(true)
     if(e.target['keyword'].value) filter.name = e.target['keyword'].value;
     if(e.target['sortBy'].value) filter.sortBy = e.target['sortBy'].value;
     if(e.target['topic'].value) filter.topic = e.target['topic'].value;
     if(e.target['lvl'].value) filter.lvl = e.target['lvl'].value;
-
     setFilter(filter)
   };
 
@@ -39,9 +37,9 @@ export default function BrowsePanel({setFilter, setIsLoading}) {
         <label htmlFor="sortBy">
           <p>Sort by:</p>
           <select name="sortBy" id="sortBy">
-            <option value="new">New firs</option>
-            <option value="rating">Rating</option>
-            <option value="popularity">Popularity</option>
+            <option value="new">New first</option>
+            <option value="old">Old first</option>
+
           </select>
         </label>
         <label htmlFor="topic">
@@ -50,7 +48,7 @@ export default function BrowsePanel({setFilter, setIsLoading}) {
             <option value="calculus">Calculus</option>
             <option value="algebra">Algebra</option>
             <option value="geometry">Gerometry</option>
-            <option value="graph-theory">Graph theory</option>
+            <option value="arithmetics">Arithmetics</option>
           </select>
         </label>
         <div className="dificulty-lvl-container">
