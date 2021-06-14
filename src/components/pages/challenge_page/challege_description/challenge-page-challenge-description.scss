@@ -7,8 +7,18 @@
     padding       : 10px;
     display       : flex;
     flex-direction: column;
+    flex-wrap     : wrap;
 
     .to-find {
         margin-top: auto;
+    }
+
+    #react-mathjax-preview {
+        width: 100%;
+
+        * {
+            width: 100%;
+            position: static;
+        }
     }
 }
