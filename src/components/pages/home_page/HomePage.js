@@ -10,7 +10,7 @@ export default function HomePage() {
       </div>
       <div className="desctription">
         <p>
-          The main goal of this project is to make math practice available on
+          The main goal of this project is to make math practice more available on
           the internet. I was inspired to create this project by the website
           with programer's challenges called <a href="https://www.codewars.com/">CodeWars</a> .
         </p>

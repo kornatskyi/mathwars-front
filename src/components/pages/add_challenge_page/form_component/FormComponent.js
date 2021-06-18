@@ -247,7 +247,7 @@ export const renderLvlField = ({
       <div>
 
         <select {...input} placeholder={placeholder}>
-          <option default value=' '>Select dificuly</option>
+          <option default value=' '>Select difficulty</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

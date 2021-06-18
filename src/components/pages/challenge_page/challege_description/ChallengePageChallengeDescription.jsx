@@ -14,9 +14,6 @@ export default function ChallengePageChallengeDescription(props) {
     <div className="challenge-page-challenge-description-constainer">
       <h2>Task</h2>
       <MathJax math={body} />
-      Answer:
-      <MathJax math={answer}/>
-      {/* <MathJax math={mathMl} /> */}
       {images ? <img src={CONST.API_URL + images} alt="" /> : <div></div>}
     </div>
   );

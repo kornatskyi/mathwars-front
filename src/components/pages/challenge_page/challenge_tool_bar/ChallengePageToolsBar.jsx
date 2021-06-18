@@ -13,11 +13,11 @@ export default function ChallengePageToolsBar() {
 
   return (
     <div className="challenge-page-tools-container">
-      <div className="tool-container">
+      {/* <div className="tool-container">
         <a href="" title="Function input">
           <img src={formulaSvg} alt="" />
         </a>
-      </div>
+      </div> */}
       <div className="tool-container">
         <a title="Calculator">
           <img
