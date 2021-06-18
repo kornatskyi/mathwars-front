@@ -24,12 +24,7 @@ export default function HomePage() {
         </Link>
         <Link to="/addchallenge">
           <div>
-            <p>Share your experience</p>
-          </div>
-        </Link>
-        <Link to="/resourses">
-          <div>
-            <p>Learn new things</p>
+            <p>Add challenges</p>
           </div>
         </Link>
       </div>

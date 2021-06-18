@@ -4,7 +4,6 @@ import topicIcon from "../../../../assets/images/challenge_data/square-root-alt-
 import "./challenge-page-header.scss";
 
 export default function ChallengePageHeader(props) {
-  console.log(props.topics);
   return (
     <div className="challenge-page-header-constainer">
       <div className="left-header">

@@ -17,6 +17,7 @@ export default function ChallengePage() {
   //load challenge data from local storage
   const challengeData = loadState();
 
+
   return (
     <div className="challengeData-page-container">
       <div className="calc-container"></div>
@@ -42,6 +43,7 @@ export default function ChallengePage() {
               images={challengeData.images}
               host={CONST.API_URL}
               answerType={challengeData.answerType}
+              challengeData={challengeData}
             />
           </div>
           <div className="col col-12 col-md-7 d-flex h-100 flex-column pl-2  pr-0 pb-2">

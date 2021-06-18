@@ -29,7 +29,6 @@ export default function ChallengePageBrowsePage() {
       .then((text) => {
         setChallenges(
           JSON.parse(text).map((challenge, i) => {
-            console.log(challenge);
             return (
               <Challenge
                 key={i}

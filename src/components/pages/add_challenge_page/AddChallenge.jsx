@@ -24,7 +24,6 @@ function AddChallenge(props) {
   values pass all validation steps */
   const submit = (values) => {
     let formData = new FormData();
-    console.log(values);
 
     const allData = { ...values, body: editorData, file: file };
 
@@ -54,7 +53,6 @@ function AddChallenge(props) {
         return response.text();
       })
       .then((text) => {
-        console.log(text);
         // alert(text);
         location.reload();
       });
