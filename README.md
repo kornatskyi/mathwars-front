@@ -1,4 +1,4 @@
-# mathwars-front
+# MathWars front-end
 [MathWars](https://mathwars-49dae.web.app/) is a web app with mathematical problems. Inspired by [CodeWars](https://www.codewars.com/).
 
 ### How to use?
