@@ -11,7 +11,7 @@ Write `npm start` in the terminal. Should have installed Node.js.
 
 ### Frameworks and libraries
 
-[Reac](https://reactjs.org/) - JS framework.
+[React](https://reactjs.org/) - JS framework.
 
 [Redux](https://redux-toolkit.js.org/) - application state management library for JS(in this case used react-redux for better integration with React).
 
