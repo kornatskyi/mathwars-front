@@ -24,4 +24,7 @@ Write `npm start` in the terminal. Should have installed Node.js.
 
 [MathType](https://www.wiris.com/en/mathtype/) - used as a plugin for CKEditor for writing math formulas. Output in MathML format.
 
+### Deployed
+On [Firebase Hosting](https://firebase.google.com/docs/hosting)
+
 
