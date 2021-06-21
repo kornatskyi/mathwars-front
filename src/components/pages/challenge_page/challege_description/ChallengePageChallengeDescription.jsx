@@ -6,7 +6,7 @@ import * as CONST from "../../../../utils/constants";
 //This is working for some reason I should make something more consistent to display math formulas
 import MathJax from "react-mathjax-preview";
 export default function ChallengePageChallengeDescription(props) {
-  const { name, body, shortTask, images, host, answerType, answer } =
+  const { name, body, shortTask, fileName, host, answerType, answer } =
     props.challengeData;
 
   console.log(props.challengeData);
@@ -14,7 +14,7 @@ export default function ChallengePageChallengeDescription(props) {
     <div className="challenge-page-challenge-description-constainer">
       <h2>Task</h2>
       <MathJax math={body} />
-      {images ? <img src={CONST.API_URL + images} alt="" /> : <div></div>}
+      {fileName ? <img src={CONST.API_URL + fileName} alt="" /> : <div></div>}
     </div>
   );
 }
