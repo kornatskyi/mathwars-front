@@ -6,6 +6,8 @@ import BrowsePanel from "./browse_panel/BrowsePanel.jsx";
 // import { addChallenge } from '../../../redux/challengeSlice'
 
 import * as CONST from "../../../utils/constants";
+console.log(CONST.API_URL);
+
 
 export default function ChallengePageBrowsePage() {
   const [isLoading, setIsLoading] = useState(true);
