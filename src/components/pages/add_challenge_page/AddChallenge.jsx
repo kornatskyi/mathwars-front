@@ -4,13 +4,14 @@ import "../../../../node_modules/guppy-js/guppy";
 
 import "./add-challenge.scss";
 
+import * as CONST from '../../../utils/constants';
 /*
  *  Using CKEditor5 custom build with math Type plugin to create body of the challege.
  *  Docs of CKEditor5 look here https://ckeditor.com/docs/ckeditor5/latest/
  */
 import FormComponent from "./form_component/FormComponent";
 
-const hostName = "http://localhost:3000/newchallenge";
+const hostName = CONST.API_URL;
 
 //redux add properties to props, not only that I added in parent component
 function AddChallenge(props) {
@@ -42,7 +43,7 @@ function AddChallenge(props) {
     }
 
     console.log(formData);
-    fetch(hostName, {
+    fetch(hostName + 'newchallenge', {
       method: "POST",
       body: formData,
     })
