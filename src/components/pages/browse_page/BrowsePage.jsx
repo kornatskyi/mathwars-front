@@ -5,6 +5,8 @@ import BrowsePanel from "./browse_panel/BrowsePanel.jsx";
 // import { useSelector, useDispatch } from 'react-redux'
 // import { addChallenge } from '../../../redux/challengeSlice'
 
+import '../../../styles/spiner.scss'
+
 import * as CONST from "../../../utils/constants";
 console.log(CONST.API_URL);
 
@@ -57,9 +59,11 @@ export default function ChallengePageBrowsePage() {
             <div className="col col-lg-4">
               <BrowsePanel setFilter={setFilter} />
             </div>
-            <div className="col col-lg-8">
-              <h1>Data loading</h1>
-            </div>
+            <div className="col-sm col-lg-8">
+              <br />
+              <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+              <h5>Challenges is loading...</h5> <p style={{color: 'grey'}}>Can take some time, because of Heroku Dynos keeps the server asleep due to rare using</p>
+            </div> 
           </div>
         </div>
       </div>
