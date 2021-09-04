@@ -1,17 +1,17 @@
 import React from "react";
 import "./browse-panel.scss";
 
-export default function BrowsePanel({setFilter, setIsLoading}) {
-  
+export default function BrowsePanel({ setFilter, setIsLoading }) {
   const hendleForm = (e) => {
     e.preventDefault();
-    let filter = {}
-    setIsLoading(true)
-    if(e.target['keyword'].value) filter.name = e.target['keyword'].value;
-    if(e.target['sortBy'].value) filter.sortBy = e.target['sortBy'].value;
-    if(e.target['topic'].value) filter.topic = e.target['topic'].value;
-    if(e.target['lvl'].value) filter.lvl = e.target['lvl'].value;
-    setFilter(filter)
+    let filter = {};
+    setIsLoading(true);
+    if (e.target["keyword"].value) filter.name = e.target["keyword"].value;
+    if (e.target["sortBy"].value) filter.sortBy = e.target["sortBy"].value;
+    if (e.target["topic"].value) filter.topic = e.target["topic"].value;
+    if (e.target["lvl"].value) filter.lvl = e.target["lvl"].value;
+
+    setFilter(filter);
   };
 
   return (
@@ -37,9 +37,11 @@ export default function BrowsePanel({setFilter, setIsLoading}) {
         <label htmlFor="sortBy">
           <p>Sort by:</p>
           <select name="sortBy" id="sortBy">
+            <option defaultValue>
+              choose an option...
+            </option>
             <option value="new">New first</option>
             <option value="old">Old first</option>
-
           </select>
         </label>
         <label htmlFor="topic">

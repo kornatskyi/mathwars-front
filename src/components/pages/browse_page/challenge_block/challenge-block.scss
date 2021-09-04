@@ -2,6 +2,7 @@
 @import "../../../../styles/mixins";
 
 
+
 .challenge-container {
     display         : flex;
     background-color: $dark-blue;
@@ -61,6 +62,18 @@
         justify-content: space-between;
         padding: 15px 30px;
 
+
+        mjx-container {
+            white-space: unset;
+            color: red;
+            overflow: hidden;
+
+            & * {
+ 
+                white-space: unset;
+   
+            }
+        }
         a {
             display: flex;
             justify-self: flex-end;
