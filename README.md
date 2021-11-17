@@ -1,5 +1,5 @@
 # MathWars front-end
-[MathWars](https://mathwars-49dae.web.app/) is a web app with mathematical problems. Inspired by [CodeWars](https://www.codewars.com/).
+[MathWars](https://mathwars-49dae.firebaseapp.com/) is a web app with mathematical problems. Inspired by [CodeWars](https://www.codewars.com/).
 
 ### How to use?
 Write `npm start` in the terminal. Should have installed Node.js.
